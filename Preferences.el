@@ -1,5 +1,6 @@
 (server-start)
 
+(setq-default completion-ignore-case t)
 (setq-default pcomplete-ignore-case t)
 
 (setq-default indent-tabs-mode nil)
