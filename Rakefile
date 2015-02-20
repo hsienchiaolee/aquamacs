@@ -18,6 +18,6 @@ task 'customizations.el' do
 end
 
 desc '~/.bashrc'
-task '~/.bashrc' do
+task '.bashrc' do
   sh "cp .bashrc #{ENV['HOME']}/.bashrc"
 end
