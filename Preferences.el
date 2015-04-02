@@ -1,8 +1,4 @@
-(server-start)
-
-(setq-default completion-ignore-case t)
-(setq-default pcomplete-ignore-case t)
-
+;; indentation
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
 (setq-default py-indent-offset 2)
@@ -12,11 +8,33 @@
 (setq-default javascript-indent-level 2)
 (setq-default js-indent-level 2)
 (setq-default scala-indent-level 2)
-
 (custom-set-variables
   '(python-guess-indent nil)
   '(python-indent 2))
 
+;; auto complete
+(setq-default completion-ignore-case t)
+(setq-default pcomplete-ignore-case t)
+
+;; disable shell echo
+(setq comint-process-echoes t)
+(put 'erase-buffer 'disabled nil)
+
+;; packages
+(defun install-package (x)
+  (when (not (package-installed-p x)) (package-install x)))
+
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
+(install-package 'rust-mode)
+(install-package 'scala-mode2)
+(install-package 'magit)
+(install-package 'git-commit-mode)
+(install-package 'git-rebase-mode)
+
+;; shell
 (defun shell-named (name)
   (shell)
   (rename-buffer name)
@@ -27,14 +45,8 @@
      (if (get-buffer ,name) (switch-to-buffer ,name)
        (shell-named ,name))))
 
-(defmacro hot-file (name)
-  `(lambda () (interactive) (find-file ,name)))
-
 (defmacro hot-buffer (name)
   `(lambda () (interactive) (switch-to-buffer ,name)))
-
-(defmacro hot-text (x)
-  `(lambda () (interactive) (insert ,x)))
 
 (global-set-key [(meta ?1)] (hot-shell "*shell1*"))
 (global-set-key [(meta ?2)] (hot-shell "*shell2*"))
@@ -47,30 +59,45 @@
 (global-set-key [(meta ?9)] (hot-shell "*shell9*"))
 (global-set-key [(meta ?0)] (hot-shell "*shell0*"))
 
+;; files
+(defmacro hot-file (name)
+  `(lambda () (interactive) (find-file ,name)))
+
 (define-key osx-key-mode-map [(alt /) ?s] (hot-buffer "*scratch*"))
 (define-key osx-key-mode-map [(alt /) ?e] (hot-file "~/Library/Preferences/Aquamacs Emacs/Preferences.el"))
 (define-key osx-key-mode-map [(alt /) ?b] (hot-file "~/.bashrc"))
 
-(define-key osx-key-mode-map [(alt \\) ?T] 'tramp-cleanup-all-connections)
+;; text
+(defmacro hot-text (x)
+  `(lambda () (interactive) (insert ,x)))
 
+;; registers
 (define-key osx-key-mode-map [(alt j)] 'jump-to-register)
 (define-key osx-key-mode-map [(alt k)] 'point-to-register)
 
+;; lines
 (define-key osx-key-mode-map [(alt \\) ?k] 'keep-lines)
 (define-key osx-key-mode-map [(alt \\) ?d] 'delete-matching-lines)
-
 (define-key osx-key-mode-map [(alt \\) ?t] 'toggle-truncate-lines)
 
+;; buffer
 (define-key osx-key-mode-map [(alt r)] 'revert-buffer)
 (define-key osx-key-mode-map [(alt q)] 'erase-buffer)
 
+;; macro
 (define-key osx-key-mode-map [(alt \()] 'kmacro-start-macro)
 (define-key osx-key-mode-map [(alt \))] 'kmacro-end-macro)
 (define-key osx-key-mode-map [(alt \\) ?a] 'apply-macro-to-region-lines)
 
-(setq comint-process-echoes t)
-(put 'erase-buffer 'disabled nil)
+;; compiling
+(global-set-key [(meta ?`)] 'compile)
+(global-set-key [(meta ?~)] 'next-error)
+(global-set-key [(control meta ?~)] 'first-error)
 
+;; replace string
+(define-key osx-key-mode-map [(meta alt f)] 'replace-string)
+
+;; duplicate line
 (defun duplicate-line ()
   (interactive)
   (let ((text (buffer-substring (line-beginning-position) (line-end-position))))
@@ -79,12 +106,7 @@
     (insert text)))
 (define-key osx-key-mode-map [(alt p)] 'duplicate-line)
 
-(global-set-key [(meta ?`)] 'compile)
-(global-set-key [(meta ?~)] 'next-error)
-(global-set-key [(control meta ?~)] 'first-error)
-
-(define-key osx-key-mode-map [(meta alt f)] 'replace-string)
-
+;; time stamp
 (defun insert-day-stamp ()
   (interactive "*")
   (insert (format-time-string "%Y-%m-%d" (current-time))))
@@ -100,3 +122,9 @@
   (insert (format-time-string "%Y%m%d-%H%M%S" (current-time))))
 (define-key osx-key-mode-map [(alt ?_)] 'insert-time-stamp)
 (put 'downcase-region 'disabled nil)
+
+;; tramp
+(set-default 'tramp-default-proxies-alist (quote ((".*" "\\`root\\'" "/ssh:%h:"))))
+
+;; start server
+(server-start)
