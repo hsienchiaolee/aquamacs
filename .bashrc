@@ -61,6 +61,7 @@ alias dyg='dynamo-get'
 ########################
 alias pp='ps xwwo pid,ppid,etime,%cpu,command'
 alias ppa='ps axwwo pid,ppid,etime,cpu,command'
+alias json='python -mjson.tool'
 pg() { pp | awk "/$1/ && "'!/awk/'; }
 pag() { ppa | awk "/$1/ && "'!/awk/'; }
 suniq() { sort $* | uniq; }
