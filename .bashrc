@@ -1,5 +1,6 @@
 export PS1='\D{%d}/\t \u \w\$ '
-export PATH=/usr/local/bin:$HOME/bin:/opt/local/bin:/opt/local/sbin:$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH
+export ANDROID_HOME=$HOME/Library/Android/sdk/
+export PATH=/usr/local/bin:$HOME/bin:/opt/local/bin:/opt/local/sbin:$HOME/.rbenv/shims:$HOME/.rbenv/bin:$ANDROID_HOME/tools/:$PATH
 
 # Git Aliases #
 ###############
