@@ -58,6 +58,11 @@ alias key1='master-key2'
 alias key2='master-key1'
 alias dyg='dynamo-get'
 
+# Gradle Aliases #
+##################
+alias gwtd='./gradlew clean testDebug'
+alias gwrd='./gradlew clean build --refresh-dependencies'
+
 # Command Line Function#
 ########################
 alias pp='ps xwwo pid,ppid,etime,%cpu,command'
