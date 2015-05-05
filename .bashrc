@@ -1,3 +1,4 @@
+export LANG=en_US.UTF-8
 export PS1='\D{%d}/\t \u \w\$ '
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=/usr/local/bin:$HOME/bin:/opt/local/bin:/opt/local/sbin:$HOME/.rbenv/shims:$HOME/.rbenv/bin:$ANDROID_HOME/tools/:$ANDROID_HOME/platform-tools/:$PATH
