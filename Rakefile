@@ -19,6 +19,5 @@ end
 
 desc '~/.bashrc'
 task '.bashrc' do
-  sh "cp .bashrc #{ENV['HOME']}/.bashrc"
-  sh "source #{ENV['HOME']}/.bashrc"
+  sh "cp .bashrc #{ENV['HOME']}/.bashrc && source #{ENV['HOME']}/.bashrc"
 end
