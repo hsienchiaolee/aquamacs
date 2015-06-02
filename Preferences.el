@@ -25,14 +25,15 @@
   (when (not (package-installed-p x)) (package-install x)))
 
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "https://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.org/packages/")))
 (package-initialize)
-(install-package 'rust-mode)
-(install-package 'scala-mode2)
 (install-package 'magit)
 (install-package 'git-commit-mode)
 (install-package 'git-rebase-mode)
+(install-package 'scala-mode2)
+(install-package 'rust-mode)
 
 ;; shell
 (defun shell-named (name)
