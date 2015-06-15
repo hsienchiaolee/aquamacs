@@ -29,6 +29,9 @@
                          ("marmalade" . "https://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.org/packages/")))
 (package-initialize)
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
 (install-package 'magit)
 (install-package 'git-commit-mode)
 (install-package 'git-rebase-mode)
