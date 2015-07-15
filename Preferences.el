@@ -33,8 +33,6 @@
   (package-refresh-contents))
 
 (install-package 'magit)
-(install-package 'git-commit-mode)
-(install-package 'git-rebase-mode)
 (install-package 'scala-mode2)
 (install-package 'rust-mode)
 
