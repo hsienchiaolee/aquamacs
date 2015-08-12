@@ -76,6 +76,8 @@
 ;; registers
 (define-key osx-key-mode-map [(alt j)] 'jump-to-register)
 (define-key osx-key-mode-map [(alt k)] 'point-to-register)
+(define-key osx-key-mode-map [(alt meta j)] 'insert-register)
+(define-key osx-key-mode-map [(alt meta k)] 'copy-to-register)
 
 ;; lines
 (define-key osx-key-mode-map [(alt \\) ?k] 'keep-lines)
