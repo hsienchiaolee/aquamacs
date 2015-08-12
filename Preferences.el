@@ -36,6 +36,8 @@
 (install-package 'scala-mode2)
 (install-package 'rust-mode)
 
+(setq magit-auto-revert-mode nil)
+
 ;; shell
 (defun shell-named (name)
   (shell)
