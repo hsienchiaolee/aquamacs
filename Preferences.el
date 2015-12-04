@@ -81,6 +81,13 @@
 (define-key osx-key-mode-map [(alt meta j)] 'insert-register)
 (define-key osx-key-mode-map [(alt meta k)] 'copy-to-register)
 
+;; magit
+(define-key osx-key-mode-map [(alt m)] nil)
+(define-key osx-key-mode-map [(alt m) ?c] 'magit-commit)
+(define-key osx-key-mode-map [(alt m) ?C] 'magit-commit-amend)
+(define-key osx-key-mode-map [(alt m) ?r] 'magit-interactive-rebase)
+(define-key osx-key-mode-map [(alt m) ?l] 'magit-log)
+
 ;; lines
 (define-key osx-key-mode-map [(alt \\) ?k] 'keep-lines)
 (define-key osx-key-mode-map [(alt \\) ?d] 'delete-matching-lines)
