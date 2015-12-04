@@ -1,7 +1,12 @@
 export LANG=en_US.UTF-8
 export PS1='\D{%d}/\t \u \w\$ '
+
+export PATH=/usr/local/bin:$HOME/bin:$PATH # default
+export PATH=$PATH:/opt/local/bin:/opt/local/sbin # macports
+export PATH=$PATH:$HOME/.rbenv/shims:$HOME/.rbenv/bin # ruby
+
 export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=/usr/local/bin:$HOME/bin:/opt/local/bin:/opt/local/sbin:$HOME/.rbenv/shims:$HOME/.rbenv/bin:$ANDROID_HOME/tools/:$ANDROID_HOME/platform-tools/:$PATH
+export PATH=$PATH:$ANDROID_HOME/tools/:$ANDROID_HOME/platform-tools/ # android
 
 # Git Aliases #
 ###############
@@ -64,14 +69,27 @@ alias dyg='dynamo-get'
 alias gwtd='./gradlew clean testDebug'
 alias gwrd='./gradlew clean build --refresh-dependencies'
 
-# Command Line Function#
-########################
+# Command Line Function #
+#########################
 alias pp='ps xwwo pid,ppid,etime,%cpu,command'
-alias ppa='ps axwwo pid,ppid,etime,cpu,command'
+alias ppa='ps axwwo pid,ppid,etime,%cpu,command'
 alias json='python -mjson.tool'
 pg() { pp | awk "/$1/ && "'!/awk/'; }
 pag() { ppa | awk "/$1/ && "'!/awk/'; }
 suniq() { sort $* | uniq; }
 
-# added by travis gem
-[ -f /Users/pivotal/.travis/travis.sh ] && source /Users/pivotal/.travis/travis.sh
+minus() { python - $* <<EOF
+import sys; s = set()
+for x in file(sys.argv[2]): s.add(x)
+for x in file(sys.argv[1]): 
+  if x not in s: print x,
+EOF
+}
+
+cap() { python - $* <<EOF
+import sys; s = set()
+for x in file(sys.argv[2]): s.add(x)
+for x in file(sys.argv[1]): 
+  if x in s: print x,
+EOF
+}
