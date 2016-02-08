@@ -1,9 +1,9 @@
 export LANG=en_US.UTF-8
 export PS1='\D{%d}/\t \u \w\$ '
 
+export PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH # ruby
 export PATH=/usr/local/bin:$HOME/bin:$PATH # default
-export PATH=$PATH:/opt/local/bin:/opt/local/sbin # macports
-export PATH=$PATH:$HOME/.rbenv/shims:$HOME/.rbenv/bin # ruby
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH # macports
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/tools/:$ANDROID_HOME/platform-tools/ # android
