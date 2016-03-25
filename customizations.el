@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(aquamacs-additional-fontsets nil t)
- '(aquamacs-customization-version-id 215 t)
+ '(aquamacs-customization-version-id 307 t)
  '(aquamacs-tool-bar-user-customization nil t)
  '(default-frame-alist
     (quote
@@ -14,12 +14,12 @@
       (modeline . t)
       (fringe)
       (mouse-color . "black")
+      (cursor-color . "Red")
       (background-mode . dark)
-      (tool-bar-lines . 1)
+      (tool-bar-lines . 0)
       (menu-bar-lines . 1)
       (right-fringe . 11)
       (left-fringe . 3)
-      (cursor-color . "Red")
       (background-color . "#000000")
       (foreground-color . "#ffffff")
       (font . "-apple-Monaco-medium-normal-normal-*-12-*-*-*-m-0-iso10646-1")
