@@ -24,6 +24,7 @@ alias gcp='git cherry-pick'
 alias gmg='git merge'
 alias gmgt='git mergetool --tool=diffmerge'
 alias gdiff='git difftool --tool=diffmerge'
+alias gdiffs='git difftool --tool=diffmerge --staged'
 alias gbl='git blame -L'
 alias glog='git --no-pager log --date=local --pretty="%h - %cr (%cd) %an, %s" --graph -10'
 alias glogg='git --no-pager log --date=local --pretty="%h - %cr (%cd) %an, %s" --graph -30'
@@ -42,6 +43,11 @@ alias gcmtr='git pair-commit -m'
 alias grm='git rm --cached'
 alias gau='git update-index --assume-unchanged'
 alias gnau='git update-index --no-assume-unchanged'
+
+# Carthage Aliases #
+####################
+alias cupdate='carthage update --platform ios'
+alias cbootstrap='carthage bootstrap --platform ios'
 
 # Command Line Aliases #
 ########################
