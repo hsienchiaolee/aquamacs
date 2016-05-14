@@ -65,11 +65,6 @@ alias lht='ls -lht'
 alias lhth='ls -lht | head'
 alias w='wc -l'
 alias lw='ls | wc -l'
-alias m='/simple/ocaml/_build/main.native'
-alias rds='mysql -h db.cnsig2wpmeqb.us-west-2.rds.amazonaws.com -u main -psimple-rules -P 3306 main'
-alias key1='master-key2'
-alias key2='master-key1'
-alias dyg='dynamo-get'
 
 # Gradle Aliases #
 ##################
