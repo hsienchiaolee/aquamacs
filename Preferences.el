@@ -33,10 +33,8 @@
   (package-refresh-contents))
 
 (install-package 'magit)
-(install-package 'scala-mode2)
-(install-package 'rust-mode)
-
-(setq magit-auto-revert-mode nil)
+(install-package 'swift-mode)
+(install-package 'buffer-move)
 
 ;; shell
 (defun shell-named (name)
@@ -143,6 +141,9 @@
 ;; buffer
 (define-key osx-key-mode-map [(alt r)] 'revert-buffer)
 (define-key osx-key-mode-map [(alt q)] 'erase-buffer)
+
+(define-key osx-key-mode-map [(meta alt left)] 'buf-move-left)
+(define-key osx-key-mode-map [(meta alt right)] 'buf-move-right)
 
 ;; macro
 (defun apply-named-macro-to-region-lines (top bottom)
