@@ -31,6 +31,7 @@
  '(python-indent 2)
  '(read-buffer-completion-ignore-case t)
  '(read-file-name-completion-ignore-case t)
+ '(tabbar-mode nil nil (tabbar))
  '(visual-line-mode nil t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
