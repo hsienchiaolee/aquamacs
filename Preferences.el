@@ -32,9 +32,14 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
+(install-package 'env-var-import)
 (install-package 'magit)
-(install-package 'swift-mode)
 (install-package 'buffer-move)
+
+(install-package 'scala-mode2)
+(install-package 'rust-mode)
+(install-package 'swift-mode)
+(install-package 'flycheck)
 
 ;; shell
 (defun shell-named (name)
@@ -202,6 +207,25 @@
 
 ;; tramp
 (set-default 'tramp-default-proxies-alist (quote ((".*" "\\`root\\'" "/ssh:%h:"))))
+
+;; Go
+(env-var-import '("GOPATH"))
+(install-package 'go-mode)
+(install-package 'go-eldoc)
+(install-package 'go-autocomplete)
+
+(require 'go-autocomplete)
+(require 'auto-complete-config)
+(ac-config-default)
+
+(defun go-mode-setup ()
+ (setq compile-command "go build -v && go test -v && go vet")
+ (define-key (current-local-map) "\C-c\C-c" 'compile)
+ (go-eldoc-setup)
+ (setq gofmt-command "goimports")
+ (add-hook 'before-save-hook 'gofmt-before-save)
+ (local-set-key [(alt b)] 'godef-jump))
+(add-hook 'go-mode-hook 'go-mode-setup)
 
 ;; start server
 (server-start)
