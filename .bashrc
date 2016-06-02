@@ -66,11 +66,6 @@ alias lhth='ls -lht | head'
 alias w='wc -l'
 alias lw='ls | wc -l'
 
-# Gradle Aliases #
-##################
-alias gwtd='./gradlew clean testDebug'
-alias gwrd='./gradlew clean build --refresh-dependencies'
-
 # Command Line Function #
 #########################
 alias pp='ps xwwo pid,ppid,etime,%cpu,command'

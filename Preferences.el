@@ -36,9 +36,6 @@
 (install-package 'magit)
 (install-package 'buffer-move)
 
-(install-package 'scala-mode2)
-(install-package 'rust-mode)
-(install-package 'swift-mode)
 (install-package 'flycheck)
 
 ;; shell
