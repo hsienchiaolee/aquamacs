@@ -90,3 +90,33 @@ for x in file(sys.argv[1]):
   if x in s: print x,
 EOF
 }
+
+reconfigure() {
+  pushd ~/workspace/sec-eng-ci/pipelines/ > /dev/null
+  PIPELINE=""
+  for fname in *
+  do
+    PIPELINE="$PIPELINE|${fname%%.*}"
+  done
+  popd > /dev/null
+  [ $# != 1 ] && echo "reconfigure (${PIPELINE:1})" && return
+
+  PIPELINE=$1
+  fly \
+    --target private \
+    sp -n -p $PIPELINE \
+    -c ~/workspace/sec-eng-ci/pipelines/${PIPELINE}.yml \
+    -l ~/workspace/sec-eng-ci-credentials/shared.yml \
+    -l ~/workspace/sec-eng-ci-credentials/${PIPELINE}.yml
+}
+
+story() {
+   if [ -n "$TRACKER_API_TOKEN" ]; then
+     STORY_TITLE=" $(curl -s -H "X-TrackerToken: $TRACKER_API_TOKEN" \
+       "https://www.pivotaltracker.com/services/v5/stories/${1/\#/}" \
+       | jq -r .name)"
+   else
+     STORY_TITLE=''
+   fi
+   printf "\n\n[$1]$STORY_TITLE" > ~/.git-tracker-story
+}
