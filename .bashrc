@@ -2,12 +2,13 @@ export LANG=en_US.UTF-8
 export PS1='\D{%d}/\t \u \w\$ '
 
 export PATH=/usr/local/bin:$HOME/bin:$PATH # default
-export PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH # ruby
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH # macports
 
 export JAVA_HOME=$(/usr/libexec/java_home)
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/tools/:$ANDROID_HOME/platform-tools/ # android
+
+source /usr/local/share/chruby/chruby.sh
 
 # Git Aliases #
 ###############
