@@ -22,7 +22,7 @@
       (left-fringe . 3)
       (background-color . "#000000")
       (foreground-color . "#ffffff")
-      (font . "-apple-Monaco-medium-normal-normal-*-12-*-*-*-m-0-iso10646-1")
+      (font . "-apple-Menlo-medium-normal-normal-*-12-*-*-*-m-0-iso10646-1")
       (fontsize . 0)
       (font-backend ns))))
  '(ns-tool-bar-display-mode (quote both) t)
