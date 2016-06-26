@@ -141,6 +141,7 @@
 (define-key osx-key-mode-map [(alt \\) ?t] 'toggle-truncate-lines)
 
 ;; buffer
+(define-key osx-key-mode-map [(alt t)] 'new-empty-buffer)
 (define-key osx-key-mode-map [(alt r)] 'revert-buffer)
 (define-key osx-key-mode-map [(alt q)] 'erase-buffer)
 
