@@ -82,11 +82,14 @@
 (define-key osx-key-mode-map [(alt meta k)] 'copy-to-register)
 
 ;; magit
+(setq magit-auto-revert-mode nil)
 (define-key osx-key-mode-map [(alt m)] nil)
+(define-key osx-key-mode-map [(alt m) ?s] 'magit-status)
+(define-key osx-key-mode-map [(alt m) ?d] 'magit-diff)
 (define-key osx-key-mode-map [(alt m) ?c] 'magit-commit)
 (define-key osx-key-mode-map [(alt m) ?C] 'magit-commit-amend)
-(define-key osx-key-mode-map [(alt m) ?r] 'magit-interactive-rebase)
-(define-key osx-key-mode-map [(alt m) ?l] 'magit-log)
+(define-key osx-key-mode-map [(alt m) ?r] 'magit-rebase-interactive)
+(define-key osx-key-mode-map [(alt m) ?l] 'magit-log-current)
 
 ;; Lines
 (defun move-line (n)
