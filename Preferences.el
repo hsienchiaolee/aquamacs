@@ -31,6 +31,18 @@
 
 (package-initialize)
 
+;; Lisp defun
+(defun eval-and-replace ()
+  "Replace the preceding sexp with its value."
+  (interactive)
+  (backward-kill-sexp)
+  (condition-case nil
+      (prin1 (eval (read (current-kill 0)))
+             (current-buffer))
+    (error (message "Invalid expression")
+           (insert (current-kill 0)))))
+(global-set-key (kbd "C-c C-e") 'eval-and-replace)
+
 ;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -90,10 +102,10 @@
 (use-package helm
   :ensure t
   :init
-  (global-set-key (kbd "M-x") 'helm-M-x)
-  (global-set-key (kbd "C-x C-m") 'helm-M-x)
-  (global-set-key (kbd "C-x b") 'helm-mini)
-  (global-set-key (kbd "C-x C-f") 'helm-find-files)
+  (setq helm-ff-file-name-history-use-recentf t)
+  :bind (("M-x" . helm-M-x)
+         ("C-x b" . helm-mini)
+         ("C-x C-f" . helm-find-files))
   :config
   (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
   (define-key helm-map (kbd "C-z") 'helm-select-action)
@@ -111,7 +123,8 @@
          ("A-m C" . magit-commit-amend)
          ("A-m r" . magit-rebase-interactive)
          ("A-m m" . magit-merge)
-         ("A-m l" . magit-log-current)))
+         ("A-m l" . magit-log-current))
+  )
 
 ;; Lines
 (defun move-line (n)
@@ -247,7 +260,15 @@
   :config
   (setq ensime-startup-snapshot-notification nil)
   (setq ensime-startup-notification nil)
-  (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+  )
+
+;; multi cursor
+(use-package multiple-cursors
+  :ensure t
+  :bind (("C-c C-s" . mc/edit-lines)
+         ("C->" . mc/mark-next-like-this)
+         ("C-<" . mc/mark-previous-like-this)
+         ("C-c C-<" . mc/mark-all-like-this))
   )
 
 ;; Go
