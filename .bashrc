@@ -11,6 +11,7 @@ export PATH=$PATH:$ANDROID_HOME/tools/:$ANDROID_HOME/platform-tools/ # android
 
 # Git Aliases #
 ###############
+alias gcl='git clone'
 alias gadd='git add -u'
 alias gconf='git config'
 alias gconfg='git config --global'
@@ -38,11 +39,12 @@ alias grv='git reset --hard HEAD'
 alias grb='git rebase'
 alias grbc='git rebase --continue'
 alias grba='git rebase --abort'
-alias gcmt='git pair-commit -a -m'
-alias gcmtr='git pair-commit -m'
+alias gcmt='git commit -a -m'
+alias gcmtr='git commit -m'
 alias grm='git rm --cached'
 alias gau='git update-index --assume-unchanged'
 alias gnau='git update-index --no-assume-unchanged'
+alias gsubu='git submodule update --remote && git submodule update --recursive'
 
 # Carthage Aliases #
 ####################
