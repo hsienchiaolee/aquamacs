@@ -98,6 +98,10 @@
 (define-key osx-key-mode-map [(alt meta j)] 'insert-register)
 (define-key osx-key-mode-map [(alt meta k)] 'copy-to-register)
 
+;; vagrant-tramp
+(use-package vagrant-tramp
+  :ensure t)
+
 ;; helm
 (use-package helm
   :ensure t

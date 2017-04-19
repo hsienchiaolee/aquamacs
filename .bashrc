@@ -68,6 +68,8 @@ alias lhth='ls -lht | head'
 alias w='wc -l'
 alias lw='ls | wc -l'
 
+alias va=vagrant
+
 # Command Line Function #
 #########################
 alias pp='ps xwwo pid,ppid,etime,%cpu,command'
