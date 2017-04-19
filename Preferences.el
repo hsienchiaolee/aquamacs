@@ -102,6 +102,13 @@
 (use-package vagrant-tramp
   :ensure t)
 
+;; 0blayout
+(use-package 0blayout
+  :ensure t
+  :config
+  (0blayout-mode t)
+  (0blayout-add-keybindings-with-prefix "C-c C-l"))
+
 ;; helm
 (use-package helm
   :ensure t
@@ -109,6 +116,7 @@
   (setq helm-ff-file-name-history-use-recentf t)
   :bind (("M-x" . helm-M-x)
          ("C-x b" . helm-mini)
+         ("C-x f" . helm-find)
          ("C-x C-f" . helm-find-files))
   :config
   (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
