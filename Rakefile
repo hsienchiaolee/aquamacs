@@ -7,17 +7,24 @@ task :default => 'Preferences.el'
 task :default => 'customizations.el'
 task :default => '.bashrc'
 
-desc '~/Library/Preferences/Aquamacs Emacs/Preferences.el'
-task 'Preferences.el' do
-  sh "cp Preferences.el '#{ENV['HOME']}/Library/Preferences/Aquamacs Emacs/Preferences.el'"
+def linkFile(dir, file)
+  filepath = dir + file
+  unless File.exists?(filepath)
+    sh "ln -s #{Dir.pwd}/#{file} '#{filepath}'"
+  end
+end
+  
+desc 'Emacs Setup'
+task 'emacs' do
+  emacsDir = "#{ENV['HOME']}/Library/Preferences/Aquamacs Emacs/"
+  
+  files = ["Packages/settings", "Preferences.el", "customizations.el"]
+  files.each { |file|
+    linkFile(emacsDir, file)
+  }
 end
 
-desc '~/Library/Preferences/Aquamacs\ Emacs/customizations.el'
-task 'customizations.el' do
-  sh "cp customizations.el '#{ENV['HOME']}/Library/Preferences/Aquamacs Emacs/customizations.el'"
-end
-
-desc '~/.bashrc'
-task '.bashrc' do
-  sh "cp .bashrc #{ENV['HOME']}/.bashrc"
+desc '.bashrc Setup'
+task 'bashrc' do
+  linkFile("#{ENV['HOME']}/", ".bashrc")
 end
