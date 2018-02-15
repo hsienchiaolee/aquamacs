@@ -18,6 +18,7 @@
 (require 'setup-modes)
 (require 'setup-multiple-cursors)
 (require 'setup-navigation)
+(require 'setup-projectile)
 (require 'setup-scala-mode)
 (require 'shortcut-file)
 (require 'shortcut-shell)

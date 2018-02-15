@@ -10,10 +10,6 @@
   (setq ensime-startup-notification nil)
   )
 
-(use-package projectile
-  :ensure t
-  :defer t)
-
 (use-package flycheck-cask
   :commands flycheck-cask-setup
   :config
