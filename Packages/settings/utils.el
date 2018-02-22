@@ -27,4 +27,8 @@
     (insert text)))
 (define-key osx-key-mode-map [(alt p)] 'duplicate-line)
 
+(use-package expand-region
+  :ensure t
+  :bind ("C-@" . er/expand-region))
+
 (provide 'utils)
