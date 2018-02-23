@@ -4,7 +4,8 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; vertical window split
-(setq split-width-threshold nil)
+(setq split-width-threshold 190)
+(setq split-height-threshold nil)
 
 ;; theme
 (use-package zenburn-theme
