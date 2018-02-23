@@ -4,11 +4,11 @@
   :defer t
   :init
   (add-to-list 'exec-path "/opt/local/bin")
-  (bind-key "C-c C-b" 'sbt-hydra)
   :config
   (setq ensime-startup-snapshot-notification nil)
   (setq ensime-startup-notification nil)
-  )
+  :bind (:map ensime-mode-map
+         ("C-c C-b h" . sbt-hydra)))
 
 (use-package flycheck-cask
   :commands flycheck-cask-setup
