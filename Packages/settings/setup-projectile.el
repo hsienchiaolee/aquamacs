@@ -1,6 +1,7 @@
 (use-package projectile
   :ensure t
-  :init   (setq projectile-use-git-grep t)
+  :init
+  (setq projectile-use-git-grep t)
   :config
   (projectile-global-mode t)
   
@@ -23,13 +24,13 @@ _A-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
  _ff_: file dwim       _g_: update gtags      _b_: switch to buffer  _x_: remove known project
  _fd_: file curr dir   _o_: multi-occur     _A-k_: Kill all buffers  _X_: cleanup non-existing
   _r_: recent file                                               ^^^^_z_: cache current
-  _d_: dir
+  _h_: helm
 
 "
     ("a"   projectile-ag)
     ("b"   projectile-switch-to-buffer)
     ("c"   projectile-invalidate-cache)
-    ("d"   projectile-find-dir)
+    ("h"   helm-projectile)
     ("A-f" projectile-find-file)
     ("ff"  projectile-find-file-dwim)
     ("fd"  projectile-find-file-in-directory)
@@ -52,5 +53,14 @@ _A-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
 
   (global-set-key (kbd "C-> o") 'hydra-projectile/body)
   )
+
+(use-package helm-projectile
+  :ensure t
+  :init
+  (helm-projectile-on))
+
+(use-package helm-ag
+  :ensure t
+  :defer t)
 
 (provide 'setup-projectile)
