@@ -19,7 +19,7 @@
   :ensure t
   :init
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
-  :bind ("A-[" . ace-window))
+  :bind ("C-x o" . ace-window))
 
 (use-package ace-jump-mode
   :ensure t
