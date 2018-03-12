@@ -7,9 +7,7 @@
 ;; setup interface and install packages early
 (require 'setup-interface)
 (require 'setup-package)
-
-;; setup hydra early as it is used elsewhere
-(require 'setup-hydra)
+(require 'setup-theme)
 
 (require 'setup-helm)
 (require 'setup-indents)

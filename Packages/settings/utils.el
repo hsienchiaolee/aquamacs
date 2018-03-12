@@ -31,4 +31,11 @@
   :ensure t
   :bind ("C-@" . er/expand-region))
 
+;; zoom
+(defhydra hydra-zoom (global-map "<f1>")
+  "zoom"
+  ("O" zoom-font-off "off")
+  ("i" zoom-font "in")
+  ("o" zoom-font-out "out"))
+
 (provide 'utils)

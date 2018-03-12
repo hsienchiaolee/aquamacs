@@ -11,8 +11,14 @@
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
-
 (eval-when-compile
   (require 'use-package))
+
+;; setup hydra early as it is used elsewhere
+(use-package hydra
+  :ensure t
+  :config
+  (setq hydra-look-for-remap t)
+  )
 
 (provide 'setup-package)
