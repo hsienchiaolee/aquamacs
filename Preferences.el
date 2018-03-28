@@ -9,6 +9,7 @@
 (require 'setup-package)
 (require 'setup-theme)
 
+(require 'setup-go-mode)
 (require 'setup-helm)
 (require 'setup-indents)
 (require 'setup-macro)
