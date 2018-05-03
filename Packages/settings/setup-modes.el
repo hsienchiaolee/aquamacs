@@ -34,6 +34,11 @@
   (add-hook 'puppet-mode-hook 'flymake-puppet-load)
   )
 
+;; groovy
+(use-package groovy-mode
+  :ensure t
+  :defer t)
+
 ;; yaml
 (use-package yaml-mode
   :ensure t
