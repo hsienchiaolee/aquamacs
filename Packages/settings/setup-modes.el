@@ -21,9 +21,18 @@
   :defer t)
 
 ;; puppet
-(use-package puppet-mode
+;; gem install puppet-lint
+(use-package flymake-puppet
   :ensure t
   :defer t)
+
+(use-package puppet-mode
+  :ensure t
+  :mode "\\.pp\\'"
+  :config
+  (require 'flymake-puppet)
+  (add-hook 'puppet-mode-hook 'flymake-puppet-load)
+  )
 
 ;; yaml
 (use-package yaml-mode
