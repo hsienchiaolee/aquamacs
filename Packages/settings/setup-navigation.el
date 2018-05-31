@@ -91,4 +91,7 @@
 (define-key osx-key-mode-map [(ctrl right)] 'next-buffer)
 (define-key osx-key-mode-map [(ctrl left)] 'previous-buffer)
 
+;; Disable save-buffer-kill-terminal command
+(global-set-key (kbd "C-x C-c") nil)
+
 (provide 'setup-navigation)
