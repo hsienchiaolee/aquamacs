@@ -19,6 +19,7 @@
 (require 'setup-navigation)
 (require 'setup-projectile)
 (require 'setup-scala-mode)
+(require 'setup-string-inflection)
 (require 'shortcut-file)
 (require 'shortcut-shell)
 (require 'shortcut-timestamp)

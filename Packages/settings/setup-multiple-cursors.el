@@ -21,7 +21,7 @@
     ("r" mc/mark-all-in-region-regexp :exit t)
     ("q" nil))
 
-  (global-set-key (kbd "C-> c") 'hydra-multiple-cursors/body)
+  (global-set-key (kbd "C-> m") 'hydra-multiple-cursors/body)
   )
 
 (provide 'setup-multiple-cursors)
