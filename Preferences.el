@@ -20,6 +20,7 @@
 (require 'setup-projectile)
 (require 'setup-scala-mode)
 (require 'setup-string-inflection)
+(require 'setup-yasnippet)
 (require 'shortcut-file)
 (require 'shortcut-shell)
 (require 'shortcut-timestamp)

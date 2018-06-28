@@ -18,7 +18,7 @@ desc 'Emacs Setup'
 task 'emacs' do
   emacsDir = "#{ENV['HOME']}/Library/Preferences/Aquamacs Emacs/"
   
-  files = ["Packages/settings", "Preferences.el", "customizations.el"]
+  files = ["Packages/settings", "Packages/snippets", "Preferences.el", "customizations.el"]
   files.each { |file|
     linkFile(emacsDir, file)
   }
