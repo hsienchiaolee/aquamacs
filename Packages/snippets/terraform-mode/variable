@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: variable
+# key: variable
+# --
+variable "${1:name}" {
+  ${2:default = "$3"}
+}

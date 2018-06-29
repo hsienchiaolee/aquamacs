@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: terraform
+# key: terraform
+# --
+terraform {
+  backend "s3" {
+    bucket = "${1:bucket}"
+    key    = "${2:key}"
+    region = "${3:region}"
+  }
+}$0

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: resource
+# key: resource
+# --
+resource "${1:resource}" "${2:name}" {
+  $0
+}
