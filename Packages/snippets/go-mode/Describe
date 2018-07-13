@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Describe
+# key: Describe
+# --
+Describe("${1:describe}", func() {
+  $0
+})

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: ExpectNotNil
+# key: ExpectNotNil
+# --
+Expect(${1:subject}).ShouldNot(BeNil())
+$0
