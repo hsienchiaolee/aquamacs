@@ -27,7 +27,7 @@ _f_: reflog      _H_: reset hard
     ("H" magit-reset-hard)
     ("r" magit-rebase-interactive)
     ("A-r" magit-rebase-continue)
-    ("p" magit-cherry-pick)
+    ("p" magit-cherry-pick-popup)
     ("A-p" magit-sequencer-continue)
     ("m" magit-merge)
     ("q" nil "cancel" :color blue)
