@@ -1,11 +1,14 @@
 export LANG=en_US.UTF-8
 export PS1='\D{%d}/\t \u \w\$ '
+export EDITOR=aquamacs
 
-export PATH=/usr/local/bin:$HOME/bin:$PATH # default
+export PATH=$HOME/bin:$PATH # default
 export PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH # ruby
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH # macports
+export PATH=$PATH:/opt/local/bin:/opt/local/sbin # macports
+export PATH=$PATH:/Applications/MySQLWorkbench.app/Contents/MacOS # mysql - ensure MySQLWorkbench is installed
 
 export JAVA_HOME=$(/usr/libexec/java_home)
+export GRADLE_HOME="/opt/local/share/java/gradle"
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/tools/:$ANDROID_HOME/platform-tools/ # android
 
@@ -43,32 +46,53 @@ alias grba='git rebase --abort'
 alias grm='git rm --cached'
 alias gau='git update-index --assume-unchanged'
 alias gnau='git update-index --no-assume-unchanged'
+alias grbus='git pull -r && git fetch tala && git rebase tala/release-next && git push'
 
-alias grbus='git fetch tala && git rebase tala/release-next && git push'
-
-# Carthage Aliases #
-####################
+# Carthage #
+############
 alias cupdate='carthage update --platform ios'
 alias cbootstrap='carthage bootstrap --platform ios'
 
 # Command Line Aliases #
 ########################
 alias brc='source ~/.bashrc'
-alias p='python'
-alias e='echo'
-alias c='cat'
-alias h='head'
-alias t='tail'
-alias g='grep'
+alias e=echo
+alias c=cat
+alias h=head
+alias t=tail
+alias g=rg # ensure ripgrep is installed
+alias p=python
+
 alias l='ls -l'
 alias lh='ls -lh'
 alias lha='ls -lha'
 alias lht='ls -lht'
 alias lhth='ls -lht | head'
+
 alias w='wc -l'
 alias lw='ls | wc -l'
 
+alias targz='tar -zcvf'
+alias untar='tar -xvzf'
+
+# External Tools #
+##################
+alias dm=diffmerge
 alias va=vagrant
+alias tf=terraform
+alias venv='source .venv/bin/activate'
+alias dvenv='deactivate'
+
+# MacPort Aliases #
+################
+alias pt='sudo port'
+alias ptu='sudo port selfupdate && sudo port upgrade outdated'
+
+# SSH Proxy #
+#############
+alias sshtu='ssh -fN $1'
+alias sshtc='ssh -O check $1'
+alias sshtd='ssh -O exit $1'
 
 # Command Line Function #
 #########################
