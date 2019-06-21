@@ -2,15 +2,20 @@ export LANG=en_US.UTF-8
 export PS1='\D{%d}/\t \u \w\$ '
 export EDITOR=aquamacs
 
-export PATH=$HOME/bin:$PATH # default
-export PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH # ruby
-export PATH=$PATH:/opt/local/bin:/opt/local/sbin # macports
-export PATH=$PATH:/Applications/MySQLWorkbench.app/Contents/MacOS # mysql - ensure MySQLWorkbench is installed
-
 export JAVA_HOME=$(/usr/libexec/java_home)
 export GRADLE_HOME="/opt/local/share/java/gradle"
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/tools/:$ANDROID_HOME/platform-tools/ # android
+
+export GOPATH=$HOME/workspace/go
+
+paths=(
+  "$HOME/.rbenv/shims:$HOME/.rbenv/bin" # rbenv
+  "/opt/local/bin:/opt/local/sbin" # macports
+  "/Applications/MySQLWorkbench.app/Contents/MacOS" # mysql - Ensure MySQLWorkbench is installed
+  "$GOPATH/bin"
+)
+for path in ${paths[*]}; do
+  [[ ":$PATH:" != *":$path:"* ]] && export PATH="${path}:${PATH}"
+done
 
 # Git Aliases #
 ###############
