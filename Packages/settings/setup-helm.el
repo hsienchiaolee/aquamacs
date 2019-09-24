@@ -31,4 +31,7 @@
   (global-set-key (kbd "A-h") `hydra-helm/body)
   )
 
+(use-package helm-rg
+  :ensure t)
+
 (provide 'setup-helm)

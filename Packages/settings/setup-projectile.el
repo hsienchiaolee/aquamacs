@@ -27,12 +27,12 @@ _A-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
   _h_: helm
 
 "
-    ("a"   projectile-ag)
-    ("b"   projectile-switch-to-buffer)
+    ("a"   helm-projectile-rg)
+    ("b"   helm-projectile-switch-to-buffer)
     ("c"   projectile-invalidate-cache)
     ("h"   helm-projectile)
-    ("A-f" projectile-find-file)
-    ("ff"  projectile-find-file-dwim)
+    ("A-f" helm-projectile-find-file)
+    ("ff"  helm-projectile-find-file-dwim)
     ("fd"  projectile-find-file-in-directory)
     ("g"   ggtags-update-tags)
     ("A-g" ggtags-update-tags)
@@ -44,7 +44,7 @@ _A-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
     ("A-p" projectile-switch-project "switch project")
     ("p"   projectile-switch-project)
     ("s"   projectile-switch-project)
-    ("r"   projectile-recentf)
+    ("r"   helm-projectile-recentf)
     ("x"   projectile-remove-known-project)
     ("X"   projectile-cleanup-known-projects)
     ("z"   projectile-cache-current-file)
@@ -59,8 +59,5 @@ _A-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
   :init
   (helm-projectile-on))
 
-(use-package helm-ag
-  :ensure t
-  :defer t)
 
 (provide 'setup-projectile)
