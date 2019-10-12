@@ -2,11 +2,21 @@
 (put 'dired-find-alternate-file 'disabled nil)
 
 ;; zoom
-(defhydra hydra-zoom (global-map "<f1>")
-  "zoom"
-  ("O" zoom-font-off "off")
-  ("i" zoom-font "in")
-  ("o" zoom-font-out "out"))
+(defhydra hydra-zoom (:color teal
+                      :hint nil)
+"
+     Zoom
+---------------
+_o_: out
+_i_: in
+_O_: off
+
+"
+  ("i" zoom-font :exit nil)
+  ("o" zoom-font-out :exit nil)
+  ("O" zoom-font-off)
+  ("q" nil "cancel" :color blue))
+(global-set-key (kbd "C-> z") `hydra-zoom/body)
 
 ;; registers
 (define-key osx-key-mode-map [(alt j)] 'jump-to-register)
