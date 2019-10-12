@@ -1,6 +1,10 @@
 ;; org mode
 (use-package org
-  :ensure t)
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook '(lambda () (setq fill-column 120)))
+  (add-hook 'org-mode-hook 'turn-on-auto-fill)
+  )
 
 ;; swift
 (use-package swift-mode
