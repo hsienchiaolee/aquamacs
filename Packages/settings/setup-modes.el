@@ -1,9 +1,16 @@
 ;; org mode
 (use-package org
   :ensure t
+  :custom
+  (org-src-fontify-natively t)
+  (org-src-tab-acts-natively t)
+  :hook (
+         (org-mode . (lambda () (setq fill-column 120)))
+         (org-mode . turn-on-auto-fill)
+         (org-mode . visual-line-mode)
+         )
   :config
-  (add-hook 'org-mode-hook '(lambda () (setq fill-column 120)))
-  (add-hook 'org-mode-hook 'turn-on-auto-fill)
+  (define-key org-mode-map (kbd "RET") `org-return-indent)
   )
 
 ;; swift
