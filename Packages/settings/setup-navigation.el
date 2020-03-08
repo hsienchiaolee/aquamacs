@@ -86,6 +86,7 @@ _O_: off
 (define-key osx-key-mode-map [(alt \\) ?k] 'keep-lines)
 (define-key osx-key-mode-map [(alt \\) ?d] 'delete-matching-lines)
 (define-key osx-key-mode-map [(alt \\) ?t] 'toggle-truncate-lines)
+(add-hook 'text-mode-hook '(lambda () (visual-line-mode)))
 
 ;; buffer
 (use-package buffer-move
