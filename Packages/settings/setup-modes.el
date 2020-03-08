@@ -4,6 +4,8 @@
   :custom
   (org-src-fontify-natively t)
   (org-src-tab-acts-natively t)
+  (org-startup-indented t)
+  (org-startup-folded "showeverything")
   :hook (
          (org-mode . (lambda () (setq fill-column 120)))
          (org-mode . turn-on-auto-fill)
@@ -11,6 +13,13 @@
          )
   :config
   (define-key org-mode-map (kbd "RET") `org-return-indent)
+
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((sh . t)
+     (python . t)
+     (ruby . t)
+     (emacs-lisp . t)))
   )
 
 ;; swift
