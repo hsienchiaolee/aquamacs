@@ -17,6 +17,13 @@ end
 desc 'Emacs Setup'
 task 'emacs' do
   emacsDir = "#{ENV['HOME']}/Library/Preferences/Aquamacs Emacs/"
+  subDirs = ["Packages/settings", "Packages/snippets"]
+  subDirs.each { |dir|
+    path = emacsDir + dir
+    unless File.directory?(path)
+      File.mkdir_p(path)
+    end
+  }
   
   files = ["Packages/settings", "Packages/snippets", "Preferences.el", "customizations.el"]
   files.each { |file|
