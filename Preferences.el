@@ -13,6 +13,7 @@
 (require 'setup-go-mode)
 (require 'setup-helm)
 (require 'setup-indents)
+(require 'setup-ivy)
 (require 'setup-macro)
 (require 'setup-magit)
 (require 'setup-modes)

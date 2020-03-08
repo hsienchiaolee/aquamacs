@@ -20,27 +20,20 @@
 
      Find File            Search/Tags          Buffers                Cache
 ------------------------------------------------------------------------------------------
-_A-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache clear
- _ff_: file dwim       _g_: update gtags      _b_: switch to buffer  _x_: remove known project
- _fd_: file curr dir   _o_: multi-occur     _A-k_: Kill all buffers  _X_: cleanup non-existing
-  _r_: recent file                                               ^^^^_z_: cache current
-  _h_: helm
-
+_A-f_: file            _a_: ag                _b_: switch to buffer  _c_: cache clear
+ _ff_: file dwim       _g_: update gtags      _K_: Kill all buffers  _x_: remove known project
+  _r_: recent fie                                                ^^^^_X_: cleanup non-existing
+  _h_: helm                                                      ^^^^_z_: cache current
 "
     ("a"   helm-projectile-rg)
     ("b"   helm-projectile-switch-to-buffer)
     ("c"   projectile-invalidate-cache)
-    ("h"   helm-projectile)
-    ("A-f" helm-projectile-find-file)
-    ("ff"  helm-projectile-find-file-dwim)
-    ("fd"  projectile-find-file-in-directory)
+    ("h"   counsel-projectile)
+    ("A-f" counsel-projectile-find-file)
+    ("ff"  counsel-projectile-find-file-dwim)
     ("g"   ggtags-update-tags)
-    ("A-g" ggtags-update-tags)
     ("i"   projectile-ibuffer)
     ("K"   projectile-kill-buffers)
-    ("A-k" projectile-kill-buffers)
-    ("m"   projectile-multi-occur)
-    ("o"   projectile-multi-occur)
     ("A-p" projectile-switch-project "switch project")
     ("p"   projectile-switch-project)
     ("s"   projectile-switch-project)
@@ -55,9 +48,10 @@ _A-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
   )
 
 (use-package helm-projectile
-  :ensure t
-  :init
-  (helm-projectile-on))
+  :ensure t)
+
+(use-package counsel-projectile
+  :ensure t)
 
 
 (provide 'setup-projectile)
