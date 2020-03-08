@@ -1,6 +1,7 @@
 export LANG=en_US.UTF-8
 export PS1='\D{%d}/\t \u \w\$ '
 export EDITOR=aquamacs
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 export JAVA_HOME=$(/usr/libexec/java_home)
 export GRADLE_HOME="/opt/local/share/java/gradle"
