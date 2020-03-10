@@ -68,3 +68,12 @@
   :defer t)
 
 (provide 'setup-modes)
+
+;; Markdown
+(use-package markdown-mode
+  :ensure t
+  :custom
+  (markdown-hide-urls t)
+  :mode ("\\.md\\'" . markdown-mode)
+  :hook
+  (markdown-mode . visual-line-mode))
