@@ -12,9 +12,9 @@
   Status        Changes           Rebase            Cherry Pick       Merge
 --------------------------------------------------------------------------------------
 _s_: status      _c_: commit        _r_: rebase          _p_: cherry pick    _m_: merge
-_d_: diff        _C_: amend         _A-r_: continue      _A-p_: continue
-_l_: log         _h_: reset        
-_f_: reflog      _H_: reset hard
+_d_: diff        _h_: reset         _A-r_: continue      _A-p_: continue
+_l_: log         _H_: reset hard        
+_f_: reflog      
 
 "
     ("s" magit-status)
@@ -22,10 +22,9 @@ _f_: reflog      _H_: reset hard
     ("l" magit-log-current)
     ("f" magit-reflog)
     ("c" magit-commit)
-    ("C" magit-commit-amend)
     ("h" magit-reset-head)
     ("H" magit-reset-hard)
-    ("r" magit-rebase-interactive)
+    ("r" magit-rebase)
     ("A-r" magit-rebase-continue)
     ("p" magit-cherry-pick)
     ("A-p" magit-sequencer-continue)
