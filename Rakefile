@@ -1,10 +1,8 @@
 require 'find'
 
 # task :default => '~/Library/Preferences/Aquamacs Emacs/Preferences.el'
-# task :default => '~/Library/Preferences/Aquamacs\ Emacs/customizations.el'
 # task :default => '~/.bashrc'
 task :default => 'Preferences.el'
-task :default => 'customizations.el'
 task :default => '.bashrc'
 
 def linkFile(dir, file)
@@ -25,7 +23,7 @@ task 'emacs' do
     end
   }
   
-  files = ["Packages/settings", "Packages/snippets", "Preferences.el", "customizations.el"]
+  files = ["Packages/settings", "Packages/snippets", "Preferences.el"]
   files.each { |file|
     linkFile(emacsDir, file)
   }
