@@ -8,7 +8,9 @@
 (use-package spaceline
   :defer t
   :init
-  (setq powerline-default-separator 'arrow-fade)
+  (setq powerline-default-separator 'slant)
+  (setq ns-use-srgb-colorspace nil)
+  (setq powerline-height 15)
   )
 
 (use-package spaceline-config
