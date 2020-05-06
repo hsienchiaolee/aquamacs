@@ -11,9 +11,6 @@
      (if (get-buffer ,name) (switch-to-buffer ,name)
        (shell-named ,name))))
 
-(defmacro hot-buffer (name)
-  `(lambda () (interactive) (switch-to-buffer ,name)))
-
 (global-set-key [(meta ?1)] (hot-shell "*shell1*"))
 (global-set-key [(meta ?2)] (hot-shell "*shell2*"))
 (global-set-key [(meta ?3)] (hot-shell "*shell3*"))
@@ -44,5 +41,9 @@
 ;; truncate buffers continuously
 (add-hook 'comint-output-filter-functions 'comint-truncate-buffer)
 
-(provide 'shortcut-shell)
+(use-package better-shell
+  :ensure t
+  :bind (("C-> s" . better-shell-remote-open))
+  )
 
+(provide 'shortcut-shell)
