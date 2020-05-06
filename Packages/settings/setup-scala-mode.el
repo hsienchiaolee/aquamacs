@@ -1,14 +1,7 @@
-(use-package ensime
+(use-package scala-mode2
   :ensure t
-  :pin melpa-stable
   :defer t
-  :init
-  (add-to-list 'exec-path "/opt/local/bin")
-  :config
-  (setq ensime-startup-snapshot-notification nil)
-  (setq ensime-startup-notification nil)
-  :bind (:map ensime-mode-map
-         ("C-c C-b h" . sbt-hydra)))
+  )
 
 (use-package flycheck-cask
   :commands flycheck-cask-setup
