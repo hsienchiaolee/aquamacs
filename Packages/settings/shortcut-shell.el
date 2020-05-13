@@ -11,6 +11,17 @@
      (if (get-buffer ,name) (switch-to-buffer ,name)
        (shell-named ,name))))
 
+(defun remote-shell-named (name)
+  (interactive)
+  (better-shell-remote-open)
+  (rename-buffer name)
+  (process-kill-without-query (get-buffer-process name)))
+
+(defmacro remote-hot-shell (name)
+  `(lambda () (interactive)
+     (if (get-buffer ,name) (switch-to-buffer ,name)
+       (remote-shell-named ,name))))
+
 (global-set-key [(meta ?1)] (hot-shell "*shell1*"))
 (global-set-key [(meta ?2)] (hot-shell "*shell2*"))
 (global-set-key [(meta ?3)] (hot-shell "*shell3*"))
@@ -21,6 +32,8 @@
 (global-set-key [(meta ?8)] (hot-shell "*shell8*"))
 (global-set-key [(meta ?9)] (hot-shell "*shell9*"))
 (global-set-key [(meta ?0)] (hot-shell "*shell0*"))
+
+(global-set-key [(meta ?!)] (remote-hot-shell "*remote-shell0*"))
 
 ;; Setup Shell
 (custom-set-variables
@@ -43,7 +56,21 @@
 
 (use-package better-shell
   :ensure t
-  :bind (("C-> s" . better-shell-remote-open))
+  :config
+  (defhydra hydra-better-shell (:color teal :hint nil)
+"
+  Better Shell
+----------------
+_r_: remote       
+_s_: sudo       
+_p_: projectile 
+"
+    ("r" better-shell-remote-open)
+    ("s" better-shell-sudo-here)
+    ("p" better-shell-for-projectile-root)
+    ("q" nil "cancel" :color blue)
+    )
+  (global-set-key (kbd "C-> s") 'hydra-better-shell/body)
   )
 
 (provide 'shortcut-shell)
