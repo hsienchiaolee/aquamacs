@@ -67,8 +67,6 @@
   :ensure t
   :defer t)
 
-(provide 'setup-modes)
-
 ;; Markdown
 (use-package markdown-mode
   :ensure t
@@ -77,3 +75,14 @@
   :mode ("\\.md\\'" . markdown-mode)
   :hook
   (markdown-mode . visual-line-mode))
+
+;; Rust
+(use-package rust-mode
+  :ensure t
+  :bind (("C-x C-c" . rust-run))
+  :custom
+  (rust-format-on-save t)
+  :mode ("\\.rs\\'" . rust-mode)
+  )
+
+(provide 'setup-modes)
