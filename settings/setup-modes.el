@@ -79,7 +79,7 @@
 ;; Rust
 (use-package rust-mode
   :ensure t
-  :bind (("C-x C-c" . rust-run))
+  :bind (("C-c C-c" . rust-run))
   :custom
   (rust-format-on-save t)
   :mode ("\\.rs\\'" . rust-mode)
