@@ -1,5 +1,6 @@
 (use-package spacemacs-theme
   :defer t
+  :ensure t
   :init
   (setq default-frame-alist (quote ((fullscreen . maximized))))
   (load-theme 'spacemacs-dark t)
