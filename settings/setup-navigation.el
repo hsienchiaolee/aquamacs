@@ -19,10 +19,10 @@ _O_: off
 (global-set-key (kbd "C-> z") `hydra-zoom/body)
 
 ;; registers
-(define-key osx-key-mode-map [(alt j)] 'jump-to-register)
-(define-key osx-key-mode-map [(alt k)] 'point-to-register)
-(define-key osx-key-mode-map [(alt meta j)] 'insert-register)
-(define-key osx-key-mode-map [(alt meta k)] 'copy-to-register)
+(global-set-key [(alt j)] 'jump-to-register)
+(global-set-key [(alt k)] 'point-to-register)
+(global-set-key [(alt meta j)] 'insert-register)
+(global-set-key [(alt meta k)] 'copy-to-register)
 
 ;; ace
 (use-package ace-window
@@ -80,27 +80,27 @@ _O_: off
   (interactive "r\np")
   (if (use-region-p) (move-region-down start end n) (move-line-down n)))
 
-(define-key osx-key-mode-map [(meta alt up)]  'move-line-region-up)
-(define-key osx-key-mode-map [(meta alt down)]  'move-line-region-down)
+(global-set-key [(meta alt up)]  'move-line-region-up)
+(global-set-key [(meta alt down)]  'move-line-region-down)
 
-(define-key osx-key-mode-map [(alt \\) ?k] 'keep-lines)
-(define-key osx-key-mode-map [(alt \\) ?d] 'delete-matching-lines)
-(define-key osx-key-mode-map [(alt \\) ?t] 'toggle-truncate-lines)
+(global-set-key [(alt \\) ?k] 'keep-lines)
+(global-set-key [(alt \\) ?d] 'delete-matching-lines)
+(global-set-key [(alt \\) ?t] 'toggle-truncate-lines)
 (add-hook 'text-mode-hook '(lambda () (visual-line-mode)))
 
 ;; buffer
 (use-package buffer-move
   :ensure t
   :init
-  (define-key osx-key-mode-map [(meta alt left)] 'buf-move-left)
-  (define-key osx-key-mode-map [(meta alt right)] 'buf-move-right)
+  (global-set-key [(meta alt left)] 'buf-move-left)
+  (global-set-key [(meta alt right)] 'buf-move-right)
   )
-(define-key osx-key-mode-map [(alt t)] 'new-empty-buffer)
-(define-key osx-key-mode-map [(alt r)] 'revert-buffer)
-(define-key osx-key-mode-map [(alt q)] 'erase-buffer)
+(global-set-key [(alt t)] 'new-empty-buffer)
+(global-set-key [(alt r)] 'revert-buffer)
+(global-set-key [(alt q)] 'erase-buffer)
 
-(define-key osx-key-mode-map [(ctrl right)] 'next-buffer)
-(define-key osx-key-mode-map [(ctrl left)] 'previous-buffer)
+(global-set-key [(ctrl right)] 'next-buffer)
+(global-set-key [(ctrl left)] 'previous-buffer)
 
 ;; Disable save-buffer-kill-terminal command
 (global-set-key (kbd "C-x C-c") nil)

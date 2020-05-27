@@ -1,8 +1,10 @@
 (package-initialize)
 
+;; Disable OS X alert sounds
+(setq ring-bell-function 'ignore)
+
 ;; Set path to dependencies
 (setq settings-dir (expand-file-name "settings" user-emacs-directory))
-(setq package-gnupghome-dir "/Applications/Aquamacs.app/Contents/Resources/etc")
 (add-to-list 'load-path settings-dir)
 
 ;; setup interface and install packages early

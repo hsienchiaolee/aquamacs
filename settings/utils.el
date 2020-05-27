@@ -16,7 +16,7 @@
 (global-set-key [(control meta ?~)] 'first-error)
 
 ;; replace string
-(define-key osx-key-mode-map [(meta alt f)] 'replace-string)
+(global-set-key [(meta alt f)] 'replace-string)
 
 ;; duplicate line
 (defun duplicate-line ()
@@ -25,7 +25,7 @@
     (move-end-of-line 1)
     (newline)
     (insert text)))
-(define-key osx-key-mode-map [(alt p)] 'duplicate-line)
+(global-set-key [(alt p)] 'duplicate-line)
 
 (use-package expand-region
   :ensure t

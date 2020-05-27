@@ -35,11 +35,11 @@
 ---------------------------------------------------
  _p_: buffer                _d_: describe
  _P_: region to buffer      _j_: jump
- _A-p_: download entry      _J_: jump other window
+ _s-p_: download entry      _J_: jump other window
 "
     ("p"   go-play-buffer)
     ("P"   go-play-region)
-    ("A-p" go-download-play)
+    ("s-p" go-download-play)
     ("d"   godef-describe)
     ("j"   godef-jump)
     ("J"   godef-jump-other-window)

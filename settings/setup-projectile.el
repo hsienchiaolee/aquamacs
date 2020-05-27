@@ -20,7 +20,7 @@
 
      Find File            Search/Tags          Buffers                Cache
 ------------------------------------------------------------------------------------------
-_A-f_: file            _a_: ag                _b_: switch to buffer  _c_: cache clear
+_s-f_: file            _a_: ag                _b_: switch to buffer  _c_: cache clear
  _ff_: file dwim       _g_: update gtags      _K_: Kill all buffers  _x_: remove known project
   _r_: recent fie                                                ^^^^_X_: cleanup non-existing
   _h_: helm                                                      ^^^^_z_: cache current
@@ -29,12 +29,12 @@ _A-f_: file            _a_: ag                _b_: switch to buffer  _c_: cache 
     ("b"   helm-projectile-switch-to-buffer)
     ("c"   projectile-invalidate-cache)
     ("h"   counsel-projectile)
-    ("A-f" counsel-projectile-find-file)
+    ("s-f" counsel-projectile-find-file)
     ("ff"  counsel-projectile-find-file-dwim)
     ("g"   ggtags-update-tags)
     ("i"   projectile-ibuffer)
     ("K"   projectile-kill-buffers)
-    ("A-p" projectile-switch-project "switch project")
+    ("s-p" projectile-switch-project "switch project")
     ("p"   projectile-switch-project)
     ("s"   projectile-switch-project)
     ("r"   helm-projectile-recentf)

@@ -18,10 +18,7 @@
 
 (use-package swiper
   :ensure t
-  :config
-  (define-key osx-key-mode-map [remap aquamacs-isearch-forward] 'swiper)
-  ;; Disable A-g to prevent using isearch
-  (define-key osx-key-mode-map [(alt g)] 'nil)
+  :bind (("s-f" . swiper))
   )
 
 (provide 'setup-ivy)

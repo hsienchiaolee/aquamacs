@@ -12,10 +12,10 @@
                                  t))))
     (apply-macro-to-region-lines top bottom macro)))
 
-(define-key osx-key-mode-map [(alt \()] 'kmacro-start-macro)
-(define-key osx-key-mode-map [(alt \))] 'kmacro-end-macro)
-(define-key osx-key-mode-map [(alt \\) ?a] 'apply-macro-to-region-lines)
-(define-key osx-key-mode-map [(alt \\) ?s] 'name-last-kbd-macro)
-(define-key osx-key-mode-map [(alt \\) ?n] 'apply-named-macro-to-region-lines)
+(global-set-key (kbd "s-(") 'kmacro-start-macro)
+(global-set-key (kbd "s-)") 'kmacro-end-macro)
+(global-set-key (kbd "s-\\ a") 'apply-macro-to-region-lines)
+(global-set-key (kbd "s-\\ s") 'name-last-kbd-macro)
+(global-set-key (kbd "s-\\ n") 'apply-named-macro-to-region-lines)
 
 (provide 'setup-macro)

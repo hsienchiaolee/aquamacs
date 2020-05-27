@@ -12,7 +12,7 @@
 
 ;; tramp
 (set-default 'tramp-default-proxies-alist (quote ((".*" "\\`root\\'" "/ssh:%h:"))))
-(define-key osx-key-mode-map [(alt \\) ?T] 'tramp-cleanup-all-connections)
+(global-set-key [(alt \\) ?T] 'tramp-cleanup-all-connections)
 
 ;; ansible valut
 (use-package ansible-vault

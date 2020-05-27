@@ -5,9 +5,6 @@
 (set-face-attribute 'fixed-pitch nil
                     :family 'unspecified
                     :inherit 'default)
-(set-face-attribute 'text-mode-default nil
-                    :family 'unspecified
-                    :inherit 'default)
 
 ;; Turn off mouse interface early in startup to avoid momentary display
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))

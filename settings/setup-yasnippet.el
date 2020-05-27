@@ -1,7 +1,5 @@
 (use-package yasnippet
   :ensure t
-  :init
-  (setq yas-snippet-dirs (expand-file-name "snippets" user-emacs-directory))
   :config
   (yas-global-mode 1)
 

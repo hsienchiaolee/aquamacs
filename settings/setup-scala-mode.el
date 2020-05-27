@@ -1,6 +1,9 @@
-(use-package scala-mode2
+(use-package scala-mode
   :ensure t
-  :defer t
+  :mode "\\.scala\\'"
+  :interpreter "scala"
+  :config
+  (add-hook 'scala-mode-hook 'line-number-mode)
   )
 
 (use-package flycheck-cask
