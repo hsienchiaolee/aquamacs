@@ -21,7 +21,7 @@
     (go-eldoc-setup)
     (setq gofmt-command "goimports")
     (add-hook 'before-save-hook 'gofmt-before-save)
-    (local-set-key [(alt b)] 'godef-jump)
+    (local-set-key (kbd "s-b") 'godef-jump)
     (add-to-list 'load-path (concat (getenv "GOPATH") "/src/github.com/dougm/goflymake"))
     (require 'go-flymake)
     (require 'go-flycheck)

@@ -19,10 +19,10 @@ _O_: off
 (global-set-key (kbd "C-> z") `hydra-zoom/body)
 
 ;; registers
-(global-set-key [(alt j)] 'jump-to-register)
-(global-set-key [(alt k)] 'point-to-register)
-(global-set-key [(alt meta j)] 'insert-register)
-(global-set-key [(alt meta k)] 'copy-to-register)
+(global-set-key (kbd "s-j") 'jump-to-register)
+(global-set-key (kbd "s-k") 'point-to-register)
+(global-set-key (kbd "M-s-j") 'insert-register)
+(global-set-key (kbd "M-s-j") 'copy-to-register)
 
 ;; ace
 (use-package ace-window
@@ -80,27 +80,27 @@ _O_: off
   (interactive "r\np")
   (if (use-region-p) (move-region-down start end n) (move-line-down n)))
 
-(global-set-key [(meta alt up)]  'move-line-region-up)
-(global-set-key [(meta alt down)]  'move-line-region-down)
+(global-set-key (kbd "M-s-<up>") 'move-line-region-up)
+(global-set-key (kbd "M-s-<down>") 'move-line-region-down)
 
-(global-set-key [(alt \\) ?k] 'keep-lines)
-(global-set-key [(alt \\) ?d] 'delete-matching-lines)
-(global-set-key [(alt \\) ?t] 'toggle-truncate-lines)
+(global-set-key (kbd "s-\\ k") 'keep-lines)
+(global-set-key (kbd "s-\\ d") 'delete-matching-lines)
+(global-set-key (kbd "s-\\ t") 'toggle-truncate-lines)
 (add-hook 'text-mode-hook '(lambda () (visual-line-mode)))
 
 ;; buffer
 (use-package buffer-move
   :ensure t
   :init
-  (global-set-key [(meta alt left)] 'buf-move-left)
-  (global-set-key [(meta alt right)] 'buf-move-right)
+  (global-set-key (kbd "M-s-<left>") 'buf-move-left)
+  (global-set-key (kbd "M-s-<right>") 'buf-move-right)
   )
-(global-set-key [(alt t)] 'new-empty-buffer)
-(global-set-key [(alt r)] 'revert-buffer)
-(global-set-key [(alt q)] 'erase-buffer)
+(global-set-key (kbd "s-t") 'new-empty-buffer)
+(global-set-key (kbd "s-r") 'revert-buffer)
+(global-set-key (kbd "s-q") 'erase-buffer)
 
-(global-set-key [(ctrl right)] 'next-buffer)
-(global-set-key [(ctrl left)] 'previous-buffer)
+(global-set-key (kbd "C-<right>") 'next-buffer)
+(global-set-key (kbd "C-<left>") 'previous-buffer)
 
 ;; Disable save-buffer-kill-terminal command
 (global-set-key (kbd "C-x C-c") nil)

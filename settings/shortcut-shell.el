@@ -22,18 +22,16 @@
      (if (get-buffer ,name) (switch-to-buffer ,name)
        (remote-shell-named ,name))))
 
-(global-set-key [(meta ?1)] (hot-shell "*shell1*"))
-(global-set-key [(meta ?2)] (hot-shell "*shell2*"))
-(global-set-key [(meta ?3)] (hot-shell "*shell3*"))
-(global-set-key [(meta ?4)] (hot-shell "*shell4*"))
-(global-set-key [(meta ?5)] (hot-shell "*shell5*"))
-(global-set-key [(meta ?6)] (hot-shell "*shell6*"))
-(global-set-key [(meta ?7)] (hot-shell "*shell7*"))
-(global-set-key [(meta ?8)] (hot-shell "*shell8*"))
-(global-set-key [(meta ?9)] (hot-shell "*shell9*"))
-(global-set-key [(meta ?0)] (hot-shell "*shell0*"))
-
-(global-set-key [(meta ?!)] (remote-hot-shell "*remote-shell0*"))
+(global-set-key (kbd "M-1") (hot-shell "*shell1*"))
+(global-set-key (kbd "M-2") (hot-shell "*shell2*"))
+(global-set-key (kbd "M-3") (hot-shell "*shell3*"))
+(global-set-key (kbd "M-4") (hot-shell "*shell4*"))
+(global-set-key (kbd "M-5") (hot-shell "*shell5*"))
+(global-set-key (kbd "M-6") (hot-shell "*shell6*"))
+(global-set-key (kbd "M-7") (hot-shell "*shell7*"))
+(global-set-key (kbd "M-8") (hot-shell "*shell8*"))
+(global-set-key (kbd "M-9") (hot-shell "*shell9*"))
+(global-set-key (kbd "M-0") (hot-shell "*shell0*"))
 
 ;; Setup Shell
 (custom-set-variables

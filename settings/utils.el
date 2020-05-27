@@ -10,13 +10,8 @@
            (insert (current-kill 0)))))
 (global-set-key (kbd "C-c C-e") 'eval-and-replace)
 
-;; compiling
-(global-set-key [(meta ?`)] 'compile)
-(global-set-key [(meta ?~)] 'next-error)
-(global-set-key [(control meta ?~)] 'first-error)
-
 ;; replace string
-(global-set-key [(meta alt f)] 'replace-string)
+(global-set-key (kbd "M-s-f") 'replace-string)
 
 ;; duplicate line
 (defun duplicate-line ()
@@ -25,7 +20,7 @@
     (move-end-of-line 1)
     (newline)
     (insert text)))
-(global-set-key [(alt p)] 'duplicate-line)
+(global-set-key (kbd "s-p") 'duplicate-line)
 
 (use-package expand-region
   :ensure t
