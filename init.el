@@ -1,4 +1,5 @@
-(package-initialize)
+(when (< emacs-major-version 27)
+  (package-initialize))
 
 ;; Disable OS X alert sounds
 (setq ring-bell-function 'ignore)
