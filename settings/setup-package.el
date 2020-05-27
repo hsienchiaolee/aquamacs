@@ -14,6 +14,11 @@
 (eval-when-compile
   (require 'use-package))
 
+;; Keep package files clean
+(use-package no-littering
+  :ensure t
+  :demand t)
+
 ;; setup hydra early as it is used elsewhere
 (use-package hydra
   :ensure t
