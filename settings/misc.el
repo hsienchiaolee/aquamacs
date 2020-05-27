@@ -6,6 +6,9 @@
 (setq comint-process-echoes t)
 (put 'erase-buffer 'disabled nil)
 
+;; Enable delete selection mode
+(delete-selection-mode 1)
+
 ;; vagrant-tramp
 (use-package vagrant-tramp
   :ensure t)
