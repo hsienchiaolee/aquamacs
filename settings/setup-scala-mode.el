@@ -3,7 +3,7 @@
   :mode "\\.scala\\'"
   :interpreter "scala"
   :config
-  (add-hook 'scala-mode-hook 'line-number-mode)
+  (add-hook 'scala-mode-hook 'display-line-numbers-mode)
   )
 
 (use-package flycheck-cask
