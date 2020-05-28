@@ -1,14 +1,17 @@
-;; Disable OS X alert sounds
+;; Emacs Settings
 (setq ring-bell-function 'ignore)
-
-;; Shorten yes-or-no
+(setq inhibit-startup-screen t)
 (defalias 'yes-or-no-p 'y-or-n-p)
+(delete-selection-mode 1)
 
+;; Fix OS X PATH issue
 (use-package exec-path-from-shell
-  :ensure t
-  :if (memq window-system '(mac ns x))
+  :if (eq system-type 'darwin)
+  :custom
+  (exec-path-from-shell-check-startup-files nil)
+  (exec-path-from-shell-variables
+   '("PATH" "MANPATH" "GOPATH"))
   :config
-  (setq exec-path-from-shell-variables '("PATH" "GOPATH"))
   (exec-path-from-shell-initialize))
 
 ;; auto complete
@@ -18,9 +21,6 @@
 ;; disable shell echo
 (setq comint-process-echoes t)
 (put 'erase-buffer 'disabled nil)
-
-;; Enable delete selection mode
-(delete-selection-mode 1)
 
 ;; vagrant-tramp
 (use-package vagrant-tramp
