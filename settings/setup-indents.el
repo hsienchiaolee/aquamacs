@@ -1,5 +1,4 @@
 (setq-default indent-tabs-mode nil)
-(setq-default visual-line-fringe-indicators '(left-curly-arrow nil))
 
 (setq-default c-basic-offset 2)
 (setq-default css-indent-offset 2)

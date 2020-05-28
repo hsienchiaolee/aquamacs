@@ -16,4 +16,7 @@
 (setq split-width-threshold 190)
 (setq split-height-threshold nil)
 
+;; Line wrap indicator
+(setq-default visual-line-fringe-indicators '(left-curly-arrow nil))
+
 (provide 'setup-interface)
