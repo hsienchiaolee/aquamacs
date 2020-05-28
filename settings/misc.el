@@ -1,3 +1,16 @@
+;; Disable OS X alert sounds
+(setq ring-bell-function 'ignore)
+
+;; Shorten yes-or-no
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+(use-package exec-path-from-shell
+  :ensure t
+  :if (memq window-system '(mac ns x))
+  :config
+  (setq exec-path-from-shell-variables '("PATH" "GOPATH"))
+  (exec-path-from-shell-initialize))
+
 ;; auto complete
 (setq-default completion-ignore-case t)
 (setq-default pcomplete-ignore-case t)

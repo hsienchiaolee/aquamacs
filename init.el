@@ -1,9 +1,6 @@
 (when (< emacs-major-version 27)
   (package-initialize))
 
-;; Disable OS X alert sounds
-(setq ring-bell-function 'ignore)
-
 ;; Set path to dependencies
 (setq settings-dir (expand-file-name "settings" user-emacs-directory))
 (add-to-list 'load-path settings-dir)
