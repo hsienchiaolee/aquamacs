@@ -19,4 +19,6 @@
 ;; Line wrap indicator
 (setq-default visual-line-fringe-indicators '(left-curly-arrow nil))
 
+(show-paren-mode 1)
+
 (provide 'setup-interface)
