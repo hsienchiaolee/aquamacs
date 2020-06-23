@@ -19,6 +19,7 @@
 (require 'setup-modes)
 (require 'setup-multiple-cursors)
 (require 'setup-navigation)
+(require 'setup-python-mode)
 (require 'setup-projectile)
 (require 'setup-scala-mode)
 (require 'setup-string-inflection)
