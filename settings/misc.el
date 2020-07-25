@@ -28,7 +28,6 @@
 
 ;; tramp
 (set-default 'tramp-default-proxies-alist (quote ((".*" "\\`root\\'" "/ssh:%h:"))))
-(global-set-key (kbd "s-T") 'tramp-cleanup-all-connections)
 
 ;; ansible valut
 (use-package ansible-vault

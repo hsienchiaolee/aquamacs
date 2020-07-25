@@ -61,11 +61,13 @@
 ----------------
 _r_: remote       
 _s_: sudo       
-_p_: projectile 
+_p_: projectile
+_X_: close connections
 "
     ("r" better-shell-remote-open)
     ("s" better-shell-sudo-here)
     ("p" better-shell-for-projectile-root)
+    ("X" tramp-cleanup-all-connections)
     ("q" nil "cancel" :color blue)
     )
   (global-set-key (kbd "C-> s") 'hydra-better-shell/body)
