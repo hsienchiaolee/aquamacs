@@ -1,5 +1,6 @@
 ;; Dependencies:
 ;; go get -u golang.org/x/tools/...
+;; go get -u golang.org/x/tools/cmd/goimports
 ;; go get -u github.com/nsf/gocode
 ;; go get -u github.com/dougm/goflymake
 ;; go get -u github.com/rogpeppe/godef
