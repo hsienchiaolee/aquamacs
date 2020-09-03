@@ -4,7 +4,7 @@
 (defun shell-named (name)
   (shell)
   (rename-buffer name)
-  (process-kill-without-query (get-buffer-process name)))
+  (set-process-query-on-exit-flag (get-buffer-process name) nil))
 
 (defmacro hot-shell (name)
   `(lambda () (interactive)
@@ -15,7 +15,7 @@
   (interactive)
   (better-shell-remote-open)
   (rename-buffer name)
-  (process-kill-without-query (get-buffer-process name)))
+  (set-process-query-on-exit-flag (get-buffer-process name) nil))
 
 (defmacro remote-hot-shell (name)
   `(lambda () (interactive)
