@@ -22,7 +22,7 @@ _O_: off
 (global-set-key (kbd "s-j") 'jump-to-register)
 (global-set-key (kbd "s-k") 'point-to-register)
 (global-set-key (kbd "M-s-j") 'insert-register)
-(global-set-key (kbd "M-s-j") 'copy-to-register)
+(global-set-key (kbd "M-s-k") 'copy-to-register)
 
 ;; ace
 (use-package ace-window
