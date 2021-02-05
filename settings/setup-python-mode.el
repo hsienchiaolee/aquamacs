@@ -10,6 +10,7 @@
     (setq tab-width 4)
     (add-hook 'before-save-hook 'elpy-black-fix-code nil t))
   (add-hook 'elpy-mode-hook 'python-mode-setup)
+  (add-hook 'elpy-mode-hook 'display-line-numbers-mode)
   )
 
 (provide 'setup-python-mode)
