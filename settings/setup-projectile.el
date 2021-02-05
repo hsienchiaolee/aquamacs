@@ -2,6 +2,7 @@
   :ensure t
   :init
   (setq projectile-use-git-grep t)
+  (setq projectile-enable-caching t)
   :config
   (projectile-global-mode t)
   
