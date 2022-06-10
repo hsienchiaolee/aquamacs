@@ -1,6 +1,7 @@
 ;; Emacs Settings
 (setq ring-bell-function 'ignore)
 (setq inhibit-startup-screen t)
+(setq dired-listing-switches "-alh")
 (defalias 'yes-or-no-p 'y-or-n-p)
 (delete-selection-mode 1)
 
