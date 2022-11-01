@@ -12,9 +12,9 @@ _i_: in
 _O_: off
 
 "
-  ("i" zoom-font :exit nil)
-  ("o" zoom-font-out :exit nil)
-  ("O" zoom-font-off)
+  ("i" text-scale-increase :exit nil)
+  ("o" text-scale-decrease :exit nil)
+  ("O" (text-scale-adjust 0))
   ("q" nil "cancel" :color blue))
 (global-set-key (kbd "C-> z") `hydra-zoom/body)
 
