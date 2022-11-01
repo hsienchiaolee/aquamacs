@@ -1,7 +1,7 @@
 ;; Font
 (set-face-attribute 'default nil
                     :family "Menlo"
-                    :height 120)
+                    :height 160)
 (set-face-attribute 'fixed-pitch nil
                     :family 'unspecified
                     :inherit 'default)
@@ -18,6 +18,9 @@
 
 ;; Line wrap indicator
 (setq-default visual-line-fringe-indicators '(left-curly-arrow nil))
+
+;; Fill column
+(setq fill-column 80)
 
 (show-paren-mode 1)
 
