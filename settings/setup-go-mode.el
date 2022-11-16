@@ -4,12 +4,6 @@
 ;; go get -u github.com/nsf/gocode
 ;; go get -u github.com/dougm/goflymake
 ;; go get -u github.com/rogpeppe/godef
-(use-package env-var-import
-  :ensure t
-  :config
-  (env-var-import '("GOPATH"))
-  )
-
 (use-package go-mode
   :ensure t
   :mode "\\.go\\'"
