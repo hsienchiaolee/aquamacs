@@ -1,0 +1,33 @@
+# General
+.DS_Store
+build/*
+
+# Git
+*.orig
+
+# IntelliJ
+.idea
+
+# Ruby
+.ruby-version
+
+# Python
+.venv
+vendor
+
+# Go
+flymake_*
+
+# Scala Ensime
+.ensime*
+ensime.sbt
+.sbt-hydra-history
+
+# Terraform
+.terraform
+
+# dtach
+.dtach*
+
+# Emacs
+.#*
