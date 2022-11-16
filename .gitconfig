@@ -1,5 +1,23 @@
-[difftool "diffmerge"]
-	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
-[mergetool "diffmerge"]
-	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
-	trustExitCode = true
+[user]
+	name = "Kai Lee"
+#	email = $EMAIL
+
+[fetch]
+	prune = true
+
+[push]
+	default = upstream
+
+[core]
+  pager =
+  core = emacsclient
+	preloadindex = true # http://stackoverflow.com/questions/18257622/why-is-git-core-preloadindex-default-value-false
+	deltabasecachelimit = 4g
+#	excludesfile = $HOME/.gitignore
+
+[help]
+	# Automatically correct and execute mistyped commands such as `git stauts`
+	autocorrect = 50
+
+[feature]
+	manyfiles = true
