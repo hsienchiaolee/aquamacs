@@ -7,6 +7,7 @@
   ("n" (find-file "~/workspace/org/notes.org") "notes" :exit t)
   ("c" (find-file "~/.ssh/config") "SSH Config" :exit t)
   ("D" (find-file "/d") "/d" :exit t)
+  ("D" (find-file "~/d") "/d" :exit t)
   ("q" nil "quit" :color blue))
 (global-set-key (kbd "s-/") 'hydra-file-shortcuts/body)
 
