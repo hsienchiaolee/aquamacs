@@ -49,7 +49,11 @@ _s-f_: file            _a_: ag                _b_: switch to buffer  _c_: cache 
   )
 
 (use-package helm-projectile
-  :ensure t)
+  :ensure t
+  :init
+  (setq counsel-projectile-find-file-matcher 'ivy--re-filter)
+  (setq counsel-projectile-sort-files nil)
+  )
 
 (use-package counsel-projectile
   :ensure t)
