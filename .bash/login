@@ -9,7 +9,6 @@ export GOPATH=$HOME/workspace/go
 
 paths=(
   "$HOME/.rbenv/shims:$HOME/.rbenv/bin" # rbenv
-  "/opt/local/bin:/opt/local/sbin" # macports
   "/Applications/MySQLWorkbench.app/Contents/MacOS" # mysql - Ensure MySQLWorkbench is installed
   "$GOPATH/bin"
   "$HOME/.cargo/bin" # Rust
