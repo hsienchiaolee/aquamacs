@@ -1,9 +1,9 @@
 ;; Dependencies:
-;; go get -u golang.org/x/tools/...
-;; go get -u golang.org/x/tools/cmd/goimports
-;; go get -u github.com/nsf/gocode
-;; go get -u github.com/dougm/goflymake
-;; go get -u github.com/rogpeppe/godef
+;; go install golang.org/x/tools/...
+;; go install golang.org/x/tools/cmd/goimports
+;; go install github.com/nsf/gocode
+;; go install github.com/dougm/goflymake
+;; go install github.com/rogpeppe/godef
 (use-package go-mode
   :ensure t
   :mode "\\.go\\'"
