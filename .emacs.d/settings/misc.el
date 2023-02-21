@@ -7,6 +7,7 @@
 
 ;; Fix OS X PATH issue
 (use-package exec-path-from-shell
+  :ensure t
   :if (eq system-type 'darwin)
   :custom
   (exec-path-from-shell-check-startup-files nil)
