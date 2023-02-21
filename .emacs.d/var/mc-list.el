@@ -3,41 +3,43 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        backward-sentence
         backward-sexp
         beginning-of-buffer
         beginning-of-visual-line
         c-electric-delete-forward
         clipboard-kill-ring-save
+        c-electric-paren
+        c-electric-semi&comma
         comint-delchar-or-maybe-eof
         cua-copy-region
+        cua-cut-region
         cua-paste
         delete-indentation
         duplicate-line
         electric-newline-and-maybe-indent
-        end-of-visual-line
-        hydra-string-inflection/nil
+        hydra-string-inflection/body
         hydra-string-inflection/string-inflection-camelcase-and-exit
         hydra-string-inflection/string-inflection-lower-camelcase-and-exit
         hydra-string-inflection/string-inflection-underscore-and-exit
         hydra-string-inflection/string-inflection-upcase-and-exit
         indent-for-tab-command
+        insert-day-stamp
         insert-register
         kill-visual-line
         kill-whole-visual-line
         left-of-visual-line
+        mac-key-save-file
         mark-sexp
-        markdown-cycle
-        markdown-demote
-        markdown-exdent-or-delete
-        markdown-outdent-or-delete
-        markdown-promote
+        mouse-set-region
+        move-line-region-down
         move-line-region-up
-        ns-copy-including-secondary
         org-delete-char
-        org-fill-paragraph
+        org-end-of-line
         org-self-insert-command
-        py-electric-colon
+        replace-string
         right-of-visual-line
+        sh-assignment
         yaml-electric-backspace
         yaml-electric-dash-and-dot
         yank-rectangle
@@ -47,11 +49,13 @@
       '(
         ace-jump-mode
         ace-window
-        eval-print-last-sexp
-        helm-find-files
-        hydra--negative-argument
-        hydra-file-shortcuts/body
+        beginning-of-buffer
+        clipboard-kill-region
+        counsel-M-x
+        end-of-buffer
+        goto-line
         hydra-multiple-cursors/body
+        hydra-multiple-cursors/mc/mark-all-in-region-regexp-and-exit
         hydra-multiple-cursors/mc/mark-all-like-this-and-exit
         hydra-multiple-cursors/mc/mark-next-like-this
         hydra-multiple-cursors/mc/mark-previous-like-this
@@ -59,7 +63,9 @@
         hydra-multiple-cursors/mc/skip-to-previous-like-this
         hydra-multiple-cursors/mc/unmark-next-like-this
         hydra-multiple-cursors/nil
-        hydra-string-inflection/body
         ignore
-        save-buffer
+        keyboard-escape-quit
+        mac-key-open-file
+        mark-whole-buffer
+        previous-buffer
         ))
