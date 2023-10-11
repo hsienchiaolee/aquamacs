@@ -8,9 +8,9 @@
         beginning-of-buffer
         beginning-of-visual-line
         c-electric-delete-forward
-        clipboard-kill-ring-save
         c-electric-paren
         c-electric-semi&comma
+        clipboard-kill-ring-save
         comint-delchar-or-maybe-eof
         cua-copy-region
         cua-cut-region
@@ -18,6 +18,7 @@
         delete-indentation
         duplicate-line
         electric-newline-and-maybe-indent
+        forward-sexp
         hydra-string-inflection/body
         hydra-string-inflection/string-inflection-camelcase-and-exit
         hydra-string-inflection/string-inflection-lower-camelcase-and-exit
@@ -36,6 +37,7 @@
         move-line-region-up
         org-delete-char
         org-end-of-line
+        org-kill-line
         org-self-insert-command
         replace-string
         right-of-visual-line
