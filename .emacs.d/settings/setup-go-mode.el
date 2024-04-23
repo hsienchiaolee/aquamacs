@@ -1,28 +1,62 @@
 ;; Dependencies:
 ;; go install golang.org/x/tools/...
-;; go install golang.org/x/tools/cmd/goimports
-;; go install github.com/nsf/gocode
-;; go install github.com/dougm/goflymake
-;; go install github.com/rogpeppe/godef
+;; go install golang.org/x/tools/gopls@latest
+(use-package lsp-mode
+  :ensure t
+  ;; uncomment to enable gopls http debug server
+  ;; :custom (lsp-gopls-server-args '("-debug" "127.0.0.1:0"))
+  :commands (lsp lsp-deferred)
+  :config
+  (progn
+    ;; use flycheck, not flymake
+    (setq lsp-prefer-flymake nil)
+    )
+  )
+
+;; optional - provides fancy overlay information
+(use-package lsp-ui
+  :ensure t
+  :commands lsp-ui-mode
+  :config
+  (progn
+    ;; disable inline documentation
+    (setq lsp-ui-sideline-enable nil)
+    ;; disable showing docs on hover at the top of the window
+    (setq lsp-ui-doc-enable nil)
+    )
+  )  
+
+(use-package company
+  :ensure t
+  :config
+  (progn
+    ;; don't add any dely before trying to complete thing being typed
+    ;; the call/response to gopls is asynchronous so this should have little
+    ;; to no affect on edit latency
+    (setq company-idle-delay 0.1)
+    ;; start completing after a single character instead of 3
+    (setq company-minimum-prefix-length 1)
+    ;; align fields in completions
+    (setq company-tooltip-align-annotations t)
+    )
+  )
+
+;; optional package to get the error squiggles as you edit
+(use-package flycheck
+  :ensure t)
+
 (use-package go-mode
   :ensure t
-  :mode "\\.go\\'"
-  :interpreter "go"
+  :bind (
+         ;; If you want to switch existing go-mode bindings to use lsp-mode/gopls instead
+         ;; uncomment the following lines
+         ;; ("C-c C-j" . lsp-find-definition)
+         ;; ("C-c C-d" . lsp-describe-thing-at-point)
+         )
+  :hook ((go-mode . lsp-deferred)
+         (before-save . lsp-format-buffer)
+         (before-save . lsp-organize-imports))
   :config
-  (defun go-mode-setup ()
-    (setq tab-width 2)
-    (setq compile-command "go build -v && go test -v && go vet")
-    (define-key (current-local-map) (kbd "C-c C-c") 'compile)
-    (go-eldoc-setup)
-    (setq gofmt-command "goimports")
-    (add-hook 'before-save-hook 'gofmt-before-save)
-    (local-set-key (kbd "s-b") 'godef-jump)
-    (add-to-list 'load-path (concat (getenv "GOPATH") "/src/github.com/dougm/goflymake"))
-    (require 'go-flymake)
-    (require 'go-flycheck)
-    )
-  (add-hook 'go-mode-hook 'go-mode-setup)
-
   (defhydra hydra-go-mode (:color teal
                            :hint nil)
 "
@@ -40,21 +74,6 @@
     ("J"   godef-jump-other-window)
     ("q"   nil "cancel" :color blue))
   (define-key go-mode-map (kbd "C-c h") `hydra-go-mode/body)
-  )
-
-(use-package go-eldoc
-  :ensure t
-  :defer t)
-
-(use-package company-go
-  :ensure t
-  :config
-  (setq company-idle-delay .1)
-  (setq company-begin-commands '(self-insert-command))
-  (add-hook 'go-mode-hook 'company-mode)
-  (add-hook 'go-mode-hook (lambda ()
-    (set (make-local-variable 'company-backends) '(company-go))
-    (company-mode)))
   )
 
 (provide 'setup-go-mode)
