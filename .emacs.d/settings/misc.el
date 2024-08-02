@@ -5,17 +5,6 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 (delete-selection-mode 1)
 
-;; Fix OS X PATH issue
-(use-package exec-path-from-shell
-  :ensure t
-  :if (eq system-type 'darwin)
-  :custom
-  (exec-path-from-shell-check-startup-files nil)
-  (exec-path-from-shell-variables
-   '("PATH" "MANPATH" "GOPATH"))
-  :config
-  (exec-path-from-shell-initialize))
-
 ;; auto complete
 (setq-default completion-ignore-case t)
 (setq-default pcomplete-ignore-case t)

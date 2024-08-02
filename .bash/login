@@ -7,11 +7,29 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 export GRADLE_HOME="/opt/local/share/java/gradle"
 export GOPATH=$HOME/workspace/go
 
+if [[ $(/usr/bin/uname -m) == "arm64" ]]; then
+  if [[ -f /opt/homebrew/bin/brew ]]; then
+    export HOMEBREW_PREFIX="/opt/homebrew";
+    export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
+    export HOMEBREW_REPOSITORY="/opt/homebrew";
+    export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
+    export INFOPATH="/opt/homebrew/share/info${INFOPATH:-}";
+  fi
+fi
+
 paths=(
-  "$HOME/.rbenv/shims:$HOME/.rbenv/bin" # rbenv
-  "/Applications/MySQLWorkbench.app/Contents/MacOS" # mysql - Ensure MySQLWorkbench is installed
+  # homebrew
+  "/opt/homebrew/sbin"
+  "/opt/homebrew/bin"
+  # rbenv
+  "$HOME/.rbenv/shims"
+  "$HOME/.rbenv/bin"
+  # mysql - Ensure MySQLWorkbench is installed
+  "/Applications/MySQLWorkbench.app/Contents/MacOS"
+  # Go
   "$GOPATH/bin"
-  "$HOME/.cargo/bin" # Rust
+  # Rust
+  "$HOME/.cargo/bin"
 )
 
 for path in ${paths[*]}; do
@@ -20,8 +38,5 @@ done
 
 # Setup Pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
+  eval "$(pyenv init - --path)"
 fi
-
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
