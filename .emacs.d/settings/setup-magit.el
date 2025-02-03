@@ -1,8 +1,4 @@
-(use-package git-commit
-  :ensure t)
-
 (use-package magit
-  :requires (dash git-commit)
   :ensure t
   :demand
   :init
