@@ -35,4 +35,5 @@ ensime.sbt
 # Package artifacts and caching
 .emacs.d/custom.el
 .emacs.d/elpa/
+.emacs.d/elpy/
 .emacs.d/var/
