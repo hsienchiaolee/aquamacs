@@ -26,7 +26,12 @@
   :pin melpa-stable
   :defer t
   :init
-  (setq ansible-vault-pass-file "~/.ansible-vault"))
+  (setq ansible-vault-pass-file "~/.ansible-vault")
+  :config
+  ;; Automatically send ansible value passwords invisibily
+  (setq comint-password-prompt-regexp
+      (concat comint-password-prompt-regexp
+              "\\|^Vault password:\\s *\\'")))
 
 ;; dirtrack
 (add-hook 'shell-mode-hook
