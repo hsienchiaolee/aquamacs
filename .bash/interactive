@@ -70,6 +70,10 @@ alias sshtu='ssh -fN $1'
 alias sshtc='ssh -O check $1'
 alias sshtd='ssh -O exit $1'
 
+# Misc #
+########
+alias clear-dns='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
+
 # Command Line Function #
 #########################
 alias pp='ps xwwo pid,ppid,etime,%cpu,command'
