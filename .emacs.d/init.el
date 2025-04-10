@@ -9,6 +9,7 @@
 (require 'setup-interface)
 (require 'setup-package)
 (require 'setup-theme)
+(require 'setup-tramp)
 
 (require 'setup-go-mode)
 (require 'setup-helm)

@@ -17,9 +17,6 @@
 (use-package vagrant-tramp
   :ensure t)
 
-;; tramp
-(set-default 'tramp-default-proxies-alist (quote ((".*" "\\`root\\'" "/ssh:%h:"))))
-
 ;; ansible valut
 (use-package ansible-vault
   :ensure t
