@@ -41,6 +41,29 @@
     )
   )
 
+;; copilot
+;; Run copilot-install-server to install @github/copilot-language-server
+;; Run copilot-login to login to github account
+;; copilot-diagnose to check if the server is running
+(use-package copilot
+  :ensure t
+  :hook (prog-mode . copilot-mode)
+  :bind (:map copilot-completion-map
+          ("<tab>" . 'copilot-accept-completion)
+          ("TAB" . 'copilot-accept-completion)
+          ("C-TAB" . 'copilot-accept-completion-by-word)
+          ("C-<tab>" . 'copilot-accept-completion-by-word)
+          ("C-n" . 'copilot-next-completion)
+          ("C-p" . 'copilot-previous-completion)
+          )
+  :config
+    (add-to-list 'copilot-indentation-alist '(prog-mode 2))
+    (add-to-list 'copilot-indentation-alist '(org-mode 2))
+    (add-to-list 'copilot-indentation-alist '(text-mode 2))
+    (add-to-list 'copilot-indentation-alist '(closure-mode 2))
+    (add-to-list 'copilot-indentation-alist '(emacs-lisp-mode 2))
+  )
+
 ;; optional package to get the error squiggles as you edit
 (use-package flycheck
   :ensure t)
