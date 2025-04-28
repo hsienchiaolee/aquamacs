@@ -1,5 +1,4 @@
 ;; Dependencies:
-;; go install golang.org/x/tools/...
 ;; go install golang.org/x/tools/gopls@latest
 (use-package lsp-mode
   :ensure t
@@ -24,10 +23,11 @@
     ;; disable showing docs on hover at the top of the window
     (setq lsp-ui-doc-enable nil)
     )
-  )  
+  )
 
 (use-package company
   :ensure t
+  :hook (prog-mode . company-mode)
   :config
   (progn
     ;; don't add any dely before trying to complete thing being typed
