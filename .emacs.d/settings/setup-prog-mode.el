@@ -39,7 +39,8 @@
 
 (use-package company
   :ensure t
-  :hook (prog-mode . company-mode)
+  :hook ((prog-mode . company-mode)
+         (prog-mode . display-line-numbers-mode))
   :config
   (progn
     ;; don't add any dely before trying to complete thing being typed
@@ -131,8 +132,6 @@
   :ensure t
   :mode "\\.scala\\'"
   :interpreter "scala"
-  :config
-  (add-hook 'scala-mode-hook 'display-line-numbers-mode)
   )
 
 ;; org mode
