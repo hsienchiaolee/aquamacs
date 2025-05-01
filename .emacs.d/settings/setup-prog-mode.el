@@ -130,8 +130,15 @@
 ;; scala-mode
 (use-package scala-mode
   :ensure t
-  :mode "\\.scala\\'"
-  :interpreter "scala"
+  :mode "\\.s\\(cala\\|bt\\)$"
+  :hook (scala-mode . lsp-deferred)
+  )
+
+(use-package lsp-metals
+  :ensure t
+  :after lsp-mode
+  ;; :custom
+  ;; (lsp-metals-server-command "~/.local/share/metals/metals") ;; or let lsp install it automatically
   )
 
 ;; org mode
