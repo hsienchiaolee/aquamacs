@@ -61,7 +61,10 @@
 ;; Check server status: M-x copilot-status
 (use-package copilot
   :ensure t
-  :hook (prog-mode . copilot-mode)
+  :hook ((go-mode . copilot-mode)
+         (python-mode . copilot-mode)
+         (scala-mode . copilot-mode)
+         )
   :bind (:map copilot-completion-map
           ("<tab>" . 'copilot-accept-completion)
           ("TAB" . 'copilot-accept-completion)
