@@ -1,5 +1,12 @@
-;; Dependencies:
-;; go install golang.org/x/tools/gopls@latest
+;;; setup-prog-mode.el --- Set up language modes -*- lexical-binding: t; -*-
+;;; Commentary:
+
+;; This package installs programming related modes as well as setting
+;; up LSP and copilot.
+
+;;; Code:
+
+;; Setting lsp-mode
 (use-package lsp-mode
   :ensure t
   ;; uncomment to enable gopls http debug server
@@ -7,12 +14,17 @@
   :commands (lsp lsp-deferred)
   :config
   (progn
+    ;; dynamically set python lsp environment
+    ;; (setq lsp-python-ms-python-executable-cmd "pyright")
+    (setq lsp-python-ms-python-executable-cmd
+        (expand-file-name "venv/bin/python" (projectile-project-root)))
+
     ;; use flycheck, not flymake
     (setq lsp-prefer-flymake nil)
     )
   )
 
-;; optional - provides fancy overlay information
+;; provides fancy overlay information
 (use-package lsp-ui
   :ensure t
   :commands lsp-ui-mode
@@ -42,9 +54,10 @@
   )
 
 ;; copilot
-;; Run copilot-install-server to install @github/copilot-language-server
-;; Run copilot-login to login to github account
-;; copilot-diagnose to check if the server is running
+;; Dependencies:
+;; Install @github/copilot-language-server: M-x copilot-install-server
+;; Login: M-x copilot-login
+;; Check server status: M-x copilot-status
 (use-package copilot
   :ensure t
   :hook (prog-mode . copilot-mode)
@@ -66,15 +79,19 @@
 
 ;; optional package to get the error squiggles as you edit
 (use-package flycheck
-  :ensure t)
+  :ensure t
+  :hook (prog-mode . flycheck-mode))
 
+;; go-mode
+;; Dependencies:
+;; go install golang.org/x/tools/gopls@latest
 (use-package go-mode
   :ensure t
   :bind (
          ;; If you want to switch existing go-mode bindings to use lsp-mode/gopls instead
          ;; uncomment the following lines
-         ;; ("C-c C-j" . lsp-find-definition)
-         ;; ("C-c C-d" . lsp-describe-thing-at-point)
+         ("C-c C-j" . lsp-find-definition)
+         ("C-c C-d" . lsp-describe-thing-at-point)
          )
   :hook ((go-mode . lsp-deferred)
          (before-save . lsp-format-buffer)
@@ -99,4 +116,89 @@
   (define-key go-mode-map (kbd "C-c h") `hydra-go-mode/body)
   )
 
-(provide 'setup-go-mode)
+;; python-mode
+;; Dependencies:
+;; npm install -g pyright
+(use-package python-mode
+  :ensure t
+  :hook ((python-mode . lsp-deferred)
+         (before-save . lsp-format-buffer)
+         (before-save . lsp-organize-imports))
+  )
+
+;; scala-mode
+(use-package scala-mode
+  :ensure t
+  :mode "\\.scala\\'"
+  :interpreter "scala"
+  :config
+  (add-hook 'scala-mode-hook 'display-line-numbers-mode)
+  )
+
+;; org mode
+(use-package org
+  :ensure t
+  :custom
+  (org-src-fontify-natively t)
+  (org-src-tab-acts-natively t)
+  (org-startup-indented t)
+  (org-startup-folded "showeverything")
+  :hook (
+         (org-mode . (lambda () (setq fill-column 120)))
+         (org-mode . turn-on-auto-fill)
+         (org-mode . visual-line-mode)
+         )
+  :config
+  (define-key org-mode-map (kbd "RET") `org-return-indent)
+
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((shell . t)
+     (python . t)
+     (ruby . t)
+     (emacs-lisp . t)))
+  )
+
+;; swift
+(use-package swift-mode
+  :ensure t
+  :mode "\\.swift\\'"
+  :interpreter "swift")
+
+;; terraform
+(use-package terraform-mode
+  :ensure t
+  :defer t
+  :config
+  (add-hook 'terraform-mode-hook #'terraform-format-on-save-mode)
+  )
+
+;; yaml
+(use-package yaml-mode
+  :ensure t
+  :defer t)
+
+;; Markdown
+(use-package markdown-mode
+  :ensure t
+  :custom
+  (markdown-hide-urls t)
+  :mode ("\\.md\\'" . markdown-mode)
+  :hook
+  (markdown-mode . visual-line-mode))
+
+;; Rust
+(use-package rust-mode
+  :ensure t
+  :bind (("C-c C-c" . rust-run))
+  :custom
+  (rust-format-on-save t)
+  :mode ("\\.rs\\'" . rust-mode)
+  )
+
+;; protobuf
+(use-package protobuf-mode
+  :ensure t
+  :defer t)
+
+(provide 'setup-prog-mode)
