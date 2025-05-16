@@ -32,11 +32,15 @@
 
 ;; dirtrack
 (add-hook 'shell-mode-hook
-  (lambda ()
-    (shell-dirtrack-mode 0)
-    ;(setq ssh-directory-tracking-mode 'ftp)
-    (setq dirtrack-list '("[A-Za-z] \\([~/\\].*\\)[$]" 1))
-    ;(dirtrack-debug-mode)
-    (dirtrack-mode)))
+          (lambda ()
+            ;; Disable shell-dirtrack-mode and customize with dirtrack-mode
+            (shell-dirtrack-mode 0)
+            ;(setq ssh-directory-tracking-mode 'ftp)
+            ;; Custom dirtrack-mode for PS1: time user@host:/dir(branch)$
+            (setq-local dirtrack-list
+                  '("^[0-9:]+ [^@]+@[^:]+:\\(.*?\\)\\(([^)]*)\\)?\\$ " 1))
+            (dirtrack-mode 1)
+            ;(dirtrack-debug-mode)
+            ))
 
 (provide 'misc)
