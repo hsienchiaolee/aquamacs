@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: select
-# key: select
-# --
-select {
-case ${1:channel} <- ${2:message}:
-	$0
-}

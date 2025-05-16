@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: BeforeEach
-# key: BeforeEach
-# --
-BeforeEach(func() {
-  $0
-})

@@ -17,4 +17,3 @@ BASH_ENV=
 if [ "$PS1" ]; then
     . ~/.bash/interactive
 fi
-. "$HOME/.cargo/env"

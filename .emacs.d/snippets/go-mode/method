@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: method
-# key: method
-# --
-// $2 ${5:...}
-func (${1:s *Struct}) ${2:name}(${3:args}) ${4:type} {
-	$0
-}

@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: It
-# key: It
-# --
-It("${1:it}", func() {
-  $0
-})

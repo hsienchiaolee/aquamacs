@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: provider
-# key: provider
-# --
-provider "${1:name}" {
-  ${2:key} = ${3:value}$0
-}
