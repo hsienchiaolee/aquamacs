@@ -1,5 +1,7 @@
-if [[ -n "$SSH_CONNECTION" ]]; then
-    export PS1='\D{%d}/\t \u@\h \w\$ '
-else
-    export PS1='\D{%d}/\t \u \w\$ '
-fi
+git_branch () {
+    if git rev-parse --git-dir >/dev/null 2>&1; then
+        echo "($(git branch 2>/dev/null | sed -n '/^\*/s/^\* //p'))"
+    fi
+}
+
+export PS1='\t \u@\h:\w$(git_branch)\$ '
